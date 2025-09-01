@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Macondo&display=swap');
+body{
+    background: #FFF5DE;
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+}
+.top-bar-area{
+    background-image: url('../images/header-bg.png');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+.main-menu ul li a{
+    color: #000000;
+    font-weight: 500;
+    font-size: 17px;
+}
+.main-menu .dropdown button{
+    background: #FFC83C;
+}
+.hero-title{
+    font-family: "Macondo", cursive;
+    font-size: 85px;
+    color: #fff;
+}
+.category-item{
+    background: #F8F8F8;
+    text-align: center;
+}
+.category-info{
+    background: #fff;
+    padding: 10px;
+}
+
+.category-item{
+    transition: 0.4s ease-in-out;
+}
+.category-item:hover {
+    filter: grayscale(60%);
+}
