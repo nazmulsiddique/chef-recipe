@@ -9,32 +9,125 @@ body{
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
+    min-height: 500px;
 }
-.main-menu ul li a{
-    color: #000000;
+
+.main-menu ul li a {
+    position: relative;
+    display: inline-block; /* restrict width to text */
+    color: #000;
     font-weight: 500;
     font-size: 17px;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
-.main-menu .dropdown button{
-    background: #FFC83C;
+
+.main-menu ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease;
+}
+
+.main-menu ul li a:hover {
+    color: #fff;
+}
+
+.main-menu ul li a:hover::after {
+    width: 100%;
+}
+
+.main-menu .language select{
+    border: 1px solid #FFC83C !important;
 }
 .hero-title{
     font-family: "Macondo", cursive;
     font-size: 85px;
     color: #fff;
+    padding-top: 60px;
+    margin-bottom: 25px;
+}
+.hero-description{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #000;
 }
 .category-item{
     background: #F8F8F8;
     text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: 0.3s ease-in-out;
 }
 .category-info{
     background: #fff;
-    padding: 10px;
+    padding: 15px;
+    font-size: 12px;
 }
-
+.category-info h5{
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+}
+.upcoming-text{
+    font-size: 14px;
+    color: blue;
+    font-weight: 500;
+}
 .category-item{
-    transition: 0.4s ease-in-out;
+    transition: 0.2s ease-in-out;
 }
 .category-item:hover {
-    filter: grayscale(60%);
+    filter: grayscale(100%);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+.footer-area{
+    background: #EEAB00;
+}
+.copyright p{
+    border-top: 2px solid #FFBA0C;
+}
+.footer-area a:hover{
+    color: #fff !important;
+    text-decoration: underline !important;
+    transition: 0.4s ease-in-out;
+}
+.footer-area li:hover{
+    color: #fff !important;
+    transition: 0.4s ease-in-out;
+}
+
+
+
+
+
+
+/* Extra small devices (phones, portrait, under 576px) */
+@media only screen and (max-width: 575.98px) {
+    .top-bar-area{
+        min-height: 500px;
+    }
+    .hero-title{
+        font-family: "Macondo", cursive;
+        font-size: 35px;
+        color: #fff;
+        padding-top: 30px;
+        margin-bottom: 25px;
+    }
+}
+
+/* Small devices (phones landscape, 576px - 767px) */
+@media only screen and (min-width: 576px) and (max-width: 767.98px) {
+
+}
+
+/* Medium devices (tablets, 768px - 991px) */
+@media only screen and (min-width: 768px) and (max-width: 991.98px) {
+
 }
