@@ -79,12 +79,28 @@ body{
     color: blue;
     font-weight: 500;
 }
-.category-item{
-    transition: 0.2s ease-in-out;
+.category-item img {
+  transition: filter 0.1s ease;
 }
+
+.category-item:hover img {
+  filter: grayscale(100%);
+}
+
+.category-item {
+  transition: box-shadow 0.3s ease;
+}
+
 .category-item:hover {
-    filter: grayscale(100%);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+.category-item h5 {
+  transition: color 0.3s ease;
+}
+
+.category-item:hover h5 {
+  color: #EEAB00;
 }
 
 .footer-area{
