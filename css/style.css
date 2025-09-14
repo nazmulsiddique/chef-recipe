@@ -4,6 +4,10 @@ body{
     font-family: "Inter", sans-serif;
     font-style: normal;
 }
+a{
+    text-decoration: none !important; 
+    color: unset;
+}
 .top-bar-area{
     background-image: url('../images/header-bg.png');
     background-size: cover;
@@ -119,11 +123,94 @@ body{
     transition: 0.4s ease-in-out;
 }
 
+.pound-cake-title{
+    font-weight: 700;
+    font-size: 40px;
+}
+.pound-cake-title span{
+    border-left: 10px solid #EEAB00;
+    margin-right: 15px;
+}
+.pound-cake label{
+    font-weight: 600;
+    font-size: 20px;
+}
+.pound-cake input, .pound-cake select{
+    font-size: 20px;
+    line-height: 50px;
+    padding: 0px 10px !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+}
+.form-select:invalid {
+  color: #999;
+}
+.form-select option {
+  color: #000;
+}
+.form-control::placeholder {
+  color: #999;
+}
+.pound-cake button{
+    font-weight: 600;
+    font-size: 25px;
+    text-transform: uppercase;
+    background: #EEAB00;
+    border: 1px solid #EEAB00;
+    border-radius: 10px !important;
+    color: #fff;
+    padding: 5px 20px;
+    transition: background 0.3s ease;
+    margin-top: 70px;
+}
 
-
-
-
-
+.pound-cake button:hover{
+    background: transparent;
+    color: #EEAB00;
+}
+.details-info p{
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 44px;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+table th{
+    background: #EEAB00 !important;
+    padding: 20px !important;
+    border-radius: 5px 5px 0 0 !important;
+    color: #fff !important;
+}
+table td{
+    background: #F8F8F8 !important;
+    padding: 15px 20px !important;
+    color: #000 !important;
+}
+tfoot tr td {
+  border-top: 2px solid #EEAB00;
+}
+.oven-model{
+    background: #F9E5B5;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+.temperature img{
+    width: 45px;
+    height: 45px;
+}
+.oven-model h2{
+    font-weight: 700;
+    font-size: 64px;
+}
+.oven-model h4{
+    font-weight: 400;
+    font-size: 25px;
+}
+.oven-model p{
+    font-weight: 400;
+    font-size: 15px;
+}
 /* Extra small devices (phones, portrait, under 576px) */
 @media only screen and (max-width: 575.98px) {
     .top-bar-area{
