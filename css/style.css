@@ -65,13 +65,14 @@ a{
     background: #F8F8F8;
     text-align: center;
     border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.07);
     transition: 0.3s ease-in-out;
 }
 .category-info{
     background: #fff;
     padding: 15px;
     font-size: 12px;
+    border-radius: 0 0 10px 10px;
 }
 .category-info h5{
     text-transform: uppercase;
@@ -177,14 +178,18 @@ a{
 }
 table th{
     background: #EEAB00 !important;
-    padding: 20px !important;
+    padding: 10px 20px !important;
     border-radius: 5px 5px 0 0 !important;
     color: #fff !important;
+    font-weight: 500;
+    font-size: 25px;
 }
 table td{
     background: #F8F8F8 !important;
-    padding: 15px 20px !important;
-    color: #000 !important;
+    padding: 10px 20px !important;
+    color: #505050 !important;
+    font-weight: 500;
+    font-size: 25px;
 }
 tfoot tr td {
   border-top: 2px solid #EEAB00;
@@ -222,6 +227,13 @@ tfoot tr td {
         color: #fff;
         padding-top: 30px;
         margin-bottom: 25px;
+    }
+    .pound-cake-title {
+        font-weight: 700;
+        font-size: 35px;
+    }
+    .pound-cake button{
+        margin-top: 10px;
     }
 }
 

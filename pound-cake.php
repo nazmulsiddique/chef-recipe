@@ -1,47 +1,8 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Chef Recipe</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link href="css/style.css" rel="stylesheet">
-</head>
+<?php include 'header.php'; ?>
 
 <body>
     <div class="top-bar-area">
-        <header class="main-menu">
-            <nav class="navbar navbar-expand-lg">
-                <div class="container">
-                    <a class="navbar-brand" href="#">
-                        <img src="images/logo.png" alt="Chef Recipe">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarScroll">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item px-4"><a class="nav-link px-0" href="#">Home</a></li>
-                            <li class="nav-item px-4"><a class="nav-link px-0" href="#">Products</a></li>
-                            <li class="nav-item px-4"><a class="nav-link px-0" href="#">About Us</a></li>
-                            <li class="nav-item px-4"><a class="nav-link px-0" href="#">How To & Tips</a></li>
-                            <li class="nav-item px-4"><a class="nav-link px-0" href="#">Blog</a></li>
-                        </ul>
-                        <div class="language">
-                            <select class="form-select border-0 bg-transparent fw-semibold">
-                                <option selected>English</option>
-                                <option value="1">বাংলা</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </header>
-
+        <?php include 'navbar.php'; ?>
         <section class="pb-5 pb-lg-0 mt-5">
             <div class="container">
                 <div class="row align-items-start position-relative" style="min-height: 600px;">
@@ -82,19 +43,19 @@
                             <label for="oven_model" class="form-label">Which model of oven do you want to use for baking the cake?</label>
                             <select class="form-select w-100" id="oven_model" required>
                                 <option value="" selected disabled hidden>Select your model</option>
-                                <option value="1">M32CTS</option>
-                                <option value="2">M25CDS</option>
-                                <option value="3">M30AS3</option>
-                                <option value="4">G30SCT</option>
-                                <option value="5">25CDP</option>
+                                <option value="M32CTS">M32CTS</option>
+                                <option value="M25CDS">M25CDS</option>
+                                <option value="M30AS3">M30AS3</option>
+                                <option value="G30SCT">G30SCT</option>
+                                <option value="25CDP">25CDP</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                        <button type="submit" id="submitBtn" class="btn btn-primary w-100">Submit</button>
                     </div>
                 </div>
-                <div class="row mt-5">
+                <div class="row mt-5 d-none" id="recipeDiv">
                     <div class="col-lg-8">
                         <table class="table">
                         <thead>
@@ -143,13 +104,13 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="oven-model">
-                        <div class="d-flex justify-content-center mt-3 temperature">
-                            <h2>170 °</h2>
-                            <img src="images/fire-icon.png" alt="" class="img-fluid">
-                        </div>
-                        <h4>Set Temperature</h4>
-                        <p>“The temperature may need to be increased or decreased depending on the voltage.”</p>
-                        <img src="images/oven-1.png" alt="" class="img-fluid">
+                                <div class="d-flex justify-content-center mt-3 temperature">
+                                    <h2>170 °</h2>
+                                    <img src="images/fire-icon.png" alt="" class="img-fluid">
+                                </div>
+                                <h4>Set Temperature</h4>
+                                <p>“The temperature may need to be increased or decreased depending on the voltage.”</p>
+                            <img id="oven_image" src="" alt="" class="img-fluid">
                         </div>
                     </div>
                     
@@ -198,100 +159,4 @@
         </div>
     </div>
 
-    <footer>
-        <img src="images/footer-curve.png" alt="" class="img-fluid">
-        <div class="footer-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <h5>Who We Are</h5>
-                        <ul class="ps-3">
-                            <li><a href="" class="text-black text-decoration-none">Home</a></li>
-                            <li><a href="" class="text-black text-decoration-none">About</a></li>
-                            <li><a href="" class="text-black text-decoration-none">Message from Chairman</a></li>
-                            <li><a href="" class="text-black text-decoration-none">Global Operation</a></li>
-                            <li><a href="" class="text-black text-decoration-none">Certificates</a></li>
-                            <li><a href="" class="text-black text-decoration-none">Accreditation</a></li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <h5>How we can help you?</h5>
-                        <ul class="ps-3">
-                            <li><a href="" class="text-black text-decoration-none">Contact Us</a></li>
-                            <li><a href="" class="text-black text-decoration-none">Sales Outlet</a></li>
-                            <li><a href="" class="text-black text-decoration-none">Store Locator</a></li>
-                            <li><a href="" class="text-black text-decoration-none">Customer Care</a></li>
-                            <li><a href="" class="text-black text-decoration-none">About Product Registration</a></li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <h5>Awards</h5>
-                        <ul class="ps-3">
-                            <li><a href="" class="text-black text-decoration-none">International</a></li>
-                            <li><a href="" class="text-black text-decoration-none">Local</a></li>
-                            <li><a href="" class="text-black text-decoration-none">Special and Souvenir</a></li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <h5>Newsroom</h5>
-                        <ul class="ps-3">
-                            <li><a href="" class="text-black text-decoration-none">Local News</a></li>
-                            <li><a href="" class="text-black text-decoration-none">International</a></li>
-                            <li><a href="" class="text-black text-decoration-none">Press Release</a></li>
-                        </ul>
-                    </div>
-                    <div class="col text-end">
-                        <h5>Support</h5>
-                        <ul class="ps-3 list-unstyled">
-                            <li><a href="" class="text-black text-decoration-none">16267/08000016267</a></li>
-                        </ul>
-                        <h5 class="mt-5">FOLLOW WALTON</h5>
-                        <div class="ps-3">
-                            <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Facebook">
-                                <img src="images/facebook.png" alt="Facebook">
-                            </a>
-                            <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Twitter">
-                                <img src="images/twitter.png" alt="Twitter">
-                            </a>
-                            <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Youtube">
-                                <img src="images/youtube.png" alt="Youtube">
-                            </a>
-                            <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Instagram">
-                                <img src="images/instagram.png" alt="Instagram">
-                            </a>
-                            <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="LinkedIn">
-                                <img src="images/linkedin.png" alt="LinkedIn">
-                            </a>
-                            <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Pinterest">
-                                <img src="images/pinterest.png" alt="Pinterest">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 copyright">
-                        <p class="text-center pt-3 text-black">Copyright © 2025 and all rights reserved by - All Sister Concerns of WALTON Group</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-            tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
-            })
-        });
-    </script>
-
-</body>
-
-</html>
+<?php include 'footer.php'; ?>
