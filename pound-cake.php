@@ -104,7 +104,7 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="oven-model">
-                                <div class="d-flex justify-content-center mt-3 temperature">
+                                <div class="d-flex justify-content-center mt-3 temperature mb-4">
                                     <h2>170 °</h2>
                                     <img src="images/fire-icon.png" alt="" class="img-fluid">
                                 </div>
