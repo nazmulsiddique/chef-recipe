@@ -176,13 +176,19 @@ a{
     margin-bottom: 10px;
     text-align: justify;
 }
-table th{
+table th {
     background: #EEAB00 !important;
     padding: 10px 20px !important;
-    border-radius: 5px 5px 0 0 !important;
     color: #fff !important;
     font-weight: 500;
     font-size: 25px;
+}
+table th:first-child {
+    border-radius: 5px 0 0 0 !important;
+}
+
+table th:last-child {
+    border-radius: 0 5px 0 0 !important;
 }
 table td{
     background: #F8F8F8 !important;
