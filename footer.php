@@ -1,6 +1,5 @@
-
     <footer>
-        <img src="images/footer-curve.png" alt="" class="img-fluid">
+        <img src="images/footer-curve-new.png" alt="" class="img-fluid">
         <div class="footer-area">
             <div class="container">
                 <div class="row">
@@ -87,7 +86,8 @@
         // Show/hide recipe div
         var submitBtn = document.getElementById("submitBtn");
         if (submitBtn) {
-            submitBtn.addEventListener("click", function () {
+            submitBtn.addEventListener("click", function (e) {
+                e.preventDefault();
                 var recipeDiv = document.getElementById("recipeDiv");
                 recipeDiv.classList.toggle("d-none");
             });

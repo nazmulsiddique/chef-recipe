@@ -27,34 +27,36 @@
 
     </div>
 
-    <div class="filter-area mt-5 mb-5">
+    <div class="filter-area mb-5">
         <div class="container pound-cake">
+            <?php include 'breadcrumb.php'; ?>
             <h2 class="pound-cake-title mb-5"> <span></span> Easily calculate your recipe in seconds</h2>
-            <form action="">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="mb-3">
-                            <label for="cake_weight" class="form-label">How many grams of cake do you want to make?</label>
-                            <input type="text" class="form-control" id="cake_weight" placeholder="Enter your cake weight" required>
+                <form action="">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="mb-3">
+                                <label for="cake_weight" class="form-label">How many grams of cake do you want to make?</label>
+                                <input type="text" class="form-control" id="cake_weight" placeholder="Enter your cake weight in “Grams”" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="mb-3">
+                                <label for="oven_model" class="form-label">Which model of oven do you want to use for baking the cake?</label>
+                                <select class="form-select w-100" id="oven_model" required>
+                                    <option value="" selected disabled hidden>Select your model</option>
+                                    <option value="M32CTS">M32CTS</option>
+                                    <option value="M25CDS">M25CDS</option>
+                                    <option value="M30AS3">M30AS3</option>
+                                    <option value="G30SCT">G30SCT</option>
+                                    <option value="25CDP">25CDP</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <button type="submit" id="submitBtn" class="btn btn-primary w-100">Submit</button>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="mb-3">
-                            <label for="oven_model" class="form-label">Which model of oven do you want to use for baking the cake?</label>
-                            <select class="form-select w-100" id="oven_model" required>
-                                <option value="" selected disabled hidden>Select your model</option>
-                                <option value="M32CTS">M32CTS</option>
-                                <option value="M25CDS">M25CDS</option>
-                                <option value="M30AS3">M30AS3</option>
-                                <option value="G30SCT">G30SCT</option>
-                                <option value="25CDP">25CDP</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <button type="submit" id="submitBtn" class="btn btn-primary w-100">Submit</button>
-                    </div>
-                </div>
+                </form>
                 <div class="row mt-5 d-none" id="recipeDiv">
                     <div class="col-lg-8">
                         <table class="table">
@@ -75,7 +77,7 @@
                             </tr>
                             <tr>
                                 <td>Egg</td>
-                                <td>140 g</td>
+                                <td>140 g ( 1 Egg = 50g )</td>
                             </tr>
                             <tr>
                                 <td>Powder Milk</td>
@@ -91,7 +93,7 @@
                             </tr>
                             <tr>
                                 <td>Vanilla Essence</td>
-                                <td>5 g</td>
+                                <td>5 Drops</td>
                             </tr>
                         </tbody>
                         <tfoot>
@@ -115,13 +117,14 @@
                     </div>
                     
                 </div>
+                
                 <div class="details-info mt-5">
                     <div class="row">
                         <div class="col-lg-12">
                            <h2 class="pound-cake-title mb-5"> <span></span>  Details Recipe</h2>
                         </div>
                         <div class="col-lg-7">
-                            <p><strong>Step 1:</strong> Sift together flour, milk powder, and baking powder into a bowl and mix well.</p>
+                            <p><strong>Step 1:</strong> Put the flour, milk powder, and baking powder in a bowl, strain them with a strainer, and mix well. </p>
                             <p><strong>Step 2:</strong> In another bowl, beat the eggs with a beater. Gradually add sugar while beating until it becomes fluffy and foamy.</p>
                             <p><strong>Step 3:</strong> Gradually add the flour mixture into the egg mixture and mix well. Then add soybean oil and vanilla essence (drops) and combine thoroughly.</p>
                             <p><strong>Step 4:</strong> Before pouring the batter, line the mold with baking paper and brush lightly with oil. Then pour the batter into the mold.</p>
@@ -134,9 +137,9 @@
                             <img class="img-fluid" src="images/details-image-two.png" alt="" >
                         </div>
                         <div class="col-lg-7 mt-3">
-                            <p><strong>Step 1:</strong> Preheat the oven in convection mode at the set temperature for 5 minutes. Once preheating is complete, place the mold with the batter into the oven.</p>
-                            <p><strong>Step 2:</strong> Set the convection time for 40–60 minutes, adjust the temperature as required, and start the oven.</p>
-                            <p><strong>Step 3:</strong> Baking time may vary depending on voltage, mold, and type of cake. After about 30-40 minutes, insert a dry stick into the cake to check. If the stick comes out with batter, the cake is not ready yet. If it comes out clean, the cake is done.</p>
+                            <p><strong>Step 5:</strong> Preheat the oven in convection mode at the set temperature for 5 minutes. Once preheating is complete, place the mold with the batter into the oven.</p>
+                            <p><strong>Step 6:</strong> Set the convection time for 40–60 minutes, adjust the temperature as required, and start the oven.</p>
+                            <p><strong>Step 7:</strong> Baking time may vary depending on voltage, mold, and type of cake. After about 30-40 minutes, insert a dry stick into the cake to check. If the stick comes out with batter, the cake is not ready yet. If it comes out clean, the cake is done.</p>
                         </div>
 
                         <div class="col-lg-12 mt-5">
@@ -155,7 +158,7 @@
                         
                     </div>
                 </div>
-            </form>
+            
         </div>
     </div>
 
