@@ -31,18 +31,18 @@
         <div class="container pound-cake">
             <?php include 'breadcrumb.php'; ?>
             <h2 class="pound-cake-title mb-5"> <span></span> Easily calculate your recipe in seconds</h2>
-                <form action="">
+                <form id="cakeForm">
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="mb-3">
                                 <label for="cake_weight" class="form-label">How many grams of cake do you want to make?</label>
-                                <input type="text" class="form-control" id="cake_weight" placeholder="Enter your cake weight in “Grams”" required>
+                                <input type="number" class="form-control" id="cake_weight" name="cake_weight" placeholder="Enter your cake weight in Grams" min="0" max="2000" required>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="mb-3">
                                 <label for="oven_model" class="form-label">Which model of oven do you want to use for baking the cake?</label>
-                                <select class="form-select w-100" id="oven_model" required>
+                                <select class="form-select w-100" id="oven_model" name="oven_model" required>
                                     <option value="" selected disabled hidden>Select your model</option>
                                     <option value="M32CTS">M32CTS</option>
                                     <option value="M25CDS">M25CDS</option>
@@ -53,10 +53,13 @@
                             </div>
                         </div>
                         <div class="col-lg-4">
-                            <button type="submit" id="submitBtn" class="btn btn-primary w-100">Submit</button>
+                            <button type="submit" class="btn btn-primary w-100">Submit</button>
                         </div>
                     </div>
                 </form>
+
+                <!-- Result will show here -->
+                <div id="responseMsg" class="mt-3"></div>
                 <div class="row mt-5 d-none" id="recipeDiv">
                     <div class="col-lg-8">
                         <table class="table">
@@ -163,3 +166,23 @@
     </div>
 
 <?php include 'footer.php'; ?>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+    $("#cakeForm").on("submit", function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: "process_form.php",
+            type: "POST",
+            data: $(this).serialize(),
+            success: function (response) {
+                $("#responseMsg").html('<div class="alert alert-success">'+ response +'</div>');
+            },
+            error: function () {
+                $("#responseMsg").html('<div class="alert alert-danger">Something went wrong!</div>');
+            }
+        });
+    });
+});
+</script>
