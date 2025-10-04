@@ -74,24 +74,24 @@
         });
 
         // Change oven image
-        var ovenModel = document.getElementById("oven_model");
-        if (ovenModel) {
-            ovenModel.addEventListener("change", function (e) {
-                var img = document.getElementById("oven_image");
-                img.src = "images/" + e.target.value + ".png";
-                img.alt = e.target.value;
-            });
-        }
+        // var ovenModel = document.getElementById("oven_model");
+        // if (ovenModel) {
+        //     ovenModel.addEventListener("change", function (e) {
+        //         var img = document.getElementById("oven_image");
+        //         img.src = "images/" + e.target.value + ".png";
+        //         img.alt = e.target.value;
+        //     });
+        // }
 
         // Show/hide recipe div
-        var submitBtn = document.getElementById("submitBtn");
-        if (submitBtn) {
-            submitBtn.addEventListener("click", function (e) {
-                e.preventDefault();
-                var recipeDiv = document.getElementById("recipeDiv");
-                recipeDiv.classList.toggle("d-none");
-            });
-        }
+        // var submitBtn = document.getElementById("submitBtn");
+        // if (submitBtn) {
+        //     submitBtn.addEventListener("click", function (e) {
+        //         e.preventDefault();
+        //         var recipeDiv = document.getElementById("recipeDiv");
+        //         recipeDiv.classList.toggle("d-none");
+        //     });
+        // }
     });
     </script>
 

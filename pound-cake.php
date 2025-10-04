@@ -36,7 +36,7 @@
                         <div class="col-lg-4">
                             <div class="mb-3">
                                 <label for="cake_weight" class="form-label">How many grams of cake do you want to make?</label>
-                                <input type="number" class="form-control" id="cake_weight" name="cake_weight" placeholder="Enter your cake weight in Grams" min="0" max="2000" required>
+                                <input type="number" class="form-control" id="cake_weight" name="cake_weight" placeholder="Enter your cake weight in Grams" required>
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -59,67 +59,33 @@
                 </form>
 
                 <!-- Result will show here -->
-                <div id="responseMsg" class="mt-3"></div>
-                <div class="row mt-5 d-none" id="recipeDiv">
-                    <div class="col-lg-8">
-                        <table class="table">
+            <div id="responseMsg" class="mt-3"></div>
+            <div class="row mt-5 d-none" id="recipeDiv">
+                <div class="col-lg-8">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th>Ingredients</th>
                                 <th>Quantity</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>Flour</td>
-                                <td>140 g</td>
-                            </tr>
-                            <tr>
-                                <td>Sugar</td>
-                                <td>140 g</td>
-                            </tr>
-                            <tr>
-                                <td>Egg</td>
-                                <td>140 g ( 1 Egg = 50g )</td>
-                            </tr>
-                            <tr>
-                                <td>Powder Milk</td>
-                                <td>3 g</td>
-                            </tr>
-                            <tr>
-                                <td>Soybean Oil</td>
-                                <td>71 g</td>
-                            </tr>
-                            <tr>
-                                <td>Baking Powder</td>
-                                <td>6 g</td>
-                            </tr>
-                            <tr>
-                                <td>Vanilla Essence</td>
-                                <td>5 Drops</td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td class="fw-bold">Total</td>
-                                <td class="fw-bold">500 g</td>
-                            </tr>
-                        </tfoot>
-                        </table>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="oven-model">
-                                <div class="d-flex justify-content-center mt-3 temperature mb-4">
-                                    <h2>170 °</h2>
-                                    <img src="images/fire-icon.png" alt="" class="img-fluid">
-                                </div>
-                                <h4>Set Temperature</h4>
-                                <p>“The temperature may need to be increased or decreased depending on the voltage.”</p>
-                            <img id="oven_image" src="" alt="" class="img-fluid">
-                        </div>
-                    </div>
-                    
+                        <tbody></tbody>
+                        
+                        <tfoot></tfoot>
+                    </table>
                 </div>
+                <div class="col-lg-4">
+                    <div class="oven-model">
+                        <div class="d-flex justify-content-center mt-3 temperature mb-4">
+                            <h2>170 °</h2>
+                            <img src="images/fire-icon.png" alt="" class="img-fluid">
+                        </div>
+                        <h4>Set Temperature</h4>
+                        <p>“The temperature may need to be increased or decreased depending on the voltage.”</p>
+                        <img id="oven_image" src="" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
                 
                 <div class="details-info mt-5">
                     <div class="row">
@@ -172,12 +138,58 @@
 $(document).ready(function () {
     $("#cakeForm").on("submit", function (e) {
         e.preventDefault();
+
+        // Clear previous errors
+        $(".error-msg").remove();
+
         $.ajax({
             url: "process_form.php",
             type: "POST",
             data: $(this).serialize(),
+            dataType: "json",
             success: function (response) {
-                $("#responseMsg").html('<div class="alert alert-success">'+ response +'</div>');
+                if (response.status === "error") {
+                    // Show errors under the fields
+                    if (response.errors.cake_weight) {
+                        $("#cake_weight").after('<div class="text-danger error-msg">' + response.errors.cake_weight + '</div>');
+                    }
+                    if (response.errors.oven_model) {
+                        $("#oven_model").after('<div class="text-danger error-msg">' + response.errors.oven_model + '</div>');
+                    }
+                } else if (response.status === "success") {
+                    $("#recipeDiv").removeClass("d-none"); // Show the recipe section
+
+                    let tbody = "";
+                    let total = 0;
+
+                    // ✅ Make sure response.ingredients exists
+                    if (response.ingredients && response.ingredients.length > 0) {
+                        response.ingredients.forEach(item => {
+                            tbody += `
+                                <tr>
+                                    <td>${item.ingredient}</td>
+                                    <td>${item.quantity}</td>
+                                </tr>
+                            `;
+                            if (item.grams) total += item.grams;
+                        });
+
+                        // Update table body
+                        $("#recipeDiv table tbody").html(tbody);
+
+                        // Update table footer
+                        $("#recipeDiv table tfoot").html(`
+                            <tr>
+                                <td class="fw-bold">Total</td>
+                                <td class="fw-bold">${total.toFixed(0)} g</td>
+                            </tr>
+                        `);
+
+                        // Update temperature & image
+                        $("#recipeDiv .temperature h2").text(response.temperature + " °");
+                        $("#oven_image").attr("src", response.oven_image);
+                    }
+                }
             },
             error: function () {
                 $("#responseMsg").html('<div class="alert alert-danger">Something went wrong!</div>');
