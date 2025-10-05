@@ -5,8 +5,8 @@
             <div class="container">
                 <div class="row align-items-start position-relative" style="min-height: 600px;">
                     <div class="col-lg-7">
-                        <h1 class="hero-title">Chef’s Perfect Recipe</h1>
-                        <p class="pb-5 pe-md-5 hero-description">
+                        <h1 class="hero-title" data-i18n="index.hero.title">Chef’s Perfect Recipe</h1>
+                        <p class="pb-5 pe-md-5 hero-description" data-i18n="index.hero.description">
                             With Chef’s Perfect Recipe, cooking becomes easier and more reliable.
                             It adjusts the right ingredients, time, and settings for your oven to give you
                             perfect results every time. Whether you’re baking a cake or making a pizza,
@@ -35,8 +35,8 @@
                     <div class="category-item">
                         <img src="images/pound-cake.png" alt="Category 1" class="img-fluid py-3 px-2">
                         <div class="category-info">
-                            <h5 class="mt-3">POUND CAKE</h5>
-                            <p>Rich and moist pound cake, baked to perfection for a classic taste in every bite.</p>
+                            <h5 class="mt-3" data-i18n="categories.pound_cake.title">POUND CAKE</h5>
+                            <p data-i18n="categories.pound_cake.description">Rich and moist pound cake, baked to perfection for a classic taste in every bite.</p>
                         </div>
                     </div>
                     </a>
@@ -45,8 +45,8 @@
                     <div class="category-item">
                         <img src="images/sponge-cake.png" alt="Category 2" class="img-fluid py-3 px-2">
                         <div class="category-info">
-                            <h5 class="mt-3">SPONGE CAKE <span class="upcoming-text">(Upcoming)</span></h5>
-                            <p>Soft and fluffy sponge cake with a light texture, perfect for tea-time or dessert.</p>
+                            <h5 class="mt-3"><span data-i18n="categories.sponge_cake.title">SPONGE CAKE</span> <span class="upcoming-text" data-i18n="labels.upcoming">(Upcoming)</span></h5>
+                            <p data-i18n="categories.sponge_cake.description">Soft and fluffy sponge cake with a light texture, perfect for tea-time or dessert.</p>
                         </div>
                     </div>
                 </div>
@@ -54,8 +54,8 @@
                     <div class="category-item">
                         <img src="images/Dry Cake.png" alt="Category 3" class="img-fluid py-3 px-2">
                         <div class="category-info">
-                            <h5 class="mt-3">Dry Cake <span class="upcoming-text">(Upcoming)</span></h5>
-                            <p>Crisp and golden dry cake, a delightful snack for any time of the day.</p>
+                            <h5 class="mt-3"><span data-i18n="categories.dry_cake.title">Dry Cake</span> <span class="upcoming-text" data-i18n="labels.upcoming">(Upcoming)</span></h5>
+                            <p data-i18n="categories.dry_cake.description">Crisp and golden dry cake, a delightful snack for any time of the day.</p>
                         </div>
                     </div>
                 </div>
@@ -63,8 +63,8 @@
                     <div class="category-item">
                         <img src="images/Bun.png" alt="Category 3" class="img-fluid py-3 px-2">
                         <div class="category-info">
-                            <h5 class="mt-3">Bun <span class="upcoming-text">(Upcoming)</span></h5>
-                            <p>Freshly baked soft buns, ideal for burgers, sandwiches, or a simple snack.</p>
+                            <h5 class="mt-3"><span data-i18n="categories.bun.title">Bun</span> <span class="upcoming-text" data-i18n="labels.upcoming">(Upcoming)</span></h5>
+                            <p data-i18n="categories.bun.description">Freshly baked soft buns, ideal for burgers, sandwiches, or a simple snack.</p>
                         </div>
                     </div>
                 </div>
@@ -72,8 +72,8 @@
                     <div class="category-item">
                         <img src="images/Tandoori Chicken.png" alt="Category 3" class="img-fluid py-3 px-2">
                         <div class="category-info">
-                            <h5 class="mt-3">Tandoori Chicken <span class="upcoming-text">(Upcoming)</span></h5>
-                            <p>Juicy and flavorful chicken marinated with spices, roasted to a smoky perfection.</p>
+                            <h5 class="mt-3"><span data-i18n="categories.tandoori_chicken.title">Tandoori Chicken</span> <span class="upcoming-text" data-i18n="labels.upcoming">(Upcoming)</span></h5>
+                            <p data-i18n="categories.tandoori_chicken.description">Juicy and flavorful chicken marinated with spices, roasted to a smoky perfection.</p>
                         </div>
                     </div>
                 </div>
@@ -81,8 +81,8 @@
                     <div class="category-item">
                         <img src="images/Pizza.png" alt="Category 3" class="img-fluid py-3 px-2">
                         <div class="category-info">
-                            <h5 class="mt-3">Pizza <span class="upcoming-text">(Upcoming)</span></h5>
-                            <p>A pizza made with fresh ingredients, offering an authentic Italian taste in every slice.</p>
+                            <h5 class="mt-3"><span data-i18n="categories.pizza.title">Pizza</span> <span class="upcoming-text" data-i18n="labels.upcoming">(Upcoming)</span></h5>
+                            <p data-i18n="categories.pizza.description">A pizza made with fresh ingredients, offering an authentic Italian taste in every slice.</p>
                         </div>
                     </div>
                 </div>
@@ -90,8 +90,8 @@
                     <div class="category-item">
                         <img src="images/Maltova Biscuit.png" alt="Category 3" class="img-fluid py-3 px-2">
                         <div class="category-info">
-                            <h5 class="mt-3">Maltova Biscuit <span class="upcoming-text">(Upcoming)</span></h5>
-                            <p>Golden and crumbly biscuits, baked to give a rich taste in every bite.</p>
+                            <h5 class="mt-3"><span data-i18n="categories.maltova_biscuit.title">Maltova Biscuit</span> <span class="upcoming-text" data-i18n="labels.upcoming">(Upcoming)</span></h5>
+                            <p data-i18n="categories.maltova_biscuit.description">Golden and crumbly biscuits, baked to give a rich taste in every bite.</p>
                         </div>
                     </div>
                 </div>
@@ -99,8 +99,8 @@
                     <div class="category-item">
                         <img src="images/Butter salt Biscuit.png" alt="Category 3" class="img-fluid py-3 px-2">
                         <div class="category-info">
-                            <h5 class="mt-3">Butter salt Biscuit <span class="upcoming-text">(Upcoming)</span></h5>
-                            <p>Crispy, light, and perfectly round biscuits for a quick and tasty snack.</p>
+                            <h5 class="mt-3"><span data-i18n="categories.butter_salt_biscuit.title">Butter salt Biscuit</span> <span class="upcoming-text" data-i18n="labels.upcoming">(Upcoming)</span></h5>
+                            <p data-i18n="categories.butter_salt_biscuit.description">Crispy, light, and perfectly round biscuits for a quick and tasty snack.</p>
                         </div>
                     </div>
                 </div>

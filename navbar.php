@@ -11,16 +11,16 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item px-4"><a class="nav-link px-0" href="#">Home</a></li>
-                    <li class="nav-item px-4"><a class="nav-link px-0" href="#">Products</a></li>
-                    <li class="nav-item px-4"><a class="nav-link px-0" href="#">About Us</a></li>
-                    <li class="nav-item px-4"><a class="nav-link px-0" href="#">How To & Tips</a></li>
-                    <li class="nav-item px-4"><a class="nav-link px-0" href="#">Blog</a></li>
+                    <li class="nav-item px-4"><a class="nav-link px-0" href="#" data-i18n="nav.home">Home</a></li>
+                    <li class="nav-item px-4"><a class="nav-link px-0" href="#" data-i18n="nav.products">Products</a></li>
+                    <li class="nav-item px-4"><a class="nav-link px-0" href="#" data-i18n="nav.about">About Us</a></li>
+                    <li class="nav-item px-4"><a class="nav-link px-0" href="#" data-i18n="nav.tips">How To & Tips</a></li>
+                    <li class="nav-item px-4"><a class="nav-link px-0" href="#" data-i18n="nav.blog">Blog</a></li>
                 </ul>
                 <div class="language">
-                    <select class="form-select border-0 bg-transparent fw-semibold">
-                        <option selected>English</option>
-                        <option value="1">বাংলা</option>
+                    <select class="form-select border-0 bg-transparent fw-semibold" id="languageSwitcher">
+                        <option value="en" data-i18n="language.english">English</option>
+                        <option value="bn" data-i18n="language.bangla">বাংলা</option>
                     </select>
                 </div>
             </div>

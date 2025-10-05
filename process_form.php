@@ -11,15 +11,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = [];
     // Validate cake weight
     if (!$cake_weight) {
-        $errors['cake_weight'] = "Cake weight is required.";
+        $errors['cake_weight'] = 'errors.cake_weight_required';
     } elseif ($cake_weight < 100 || $cake_weight > 2000) {
-        $errors['cake_weight'] = "Cake weight must be between 100g and 2000g.";
+        $errors['cake_weight'] = 'errors.cake_weight_range';
     }
     // Validate oven model
     if (!$oven_model) {
-        $errors['oven_model'] = "Oven model is required.";
+        $errors['oven_model'] = 'errors.oven_model_required';
     } elseif (!isset($data[$oven_model])) {
-        $errors['oven_model'] = "Selected oven model is invalid.";
+        $errors['oven_model'] = 'errors.oven_model_invalid';
     }
     // If there are errors, return them
     if (!empty($errors)) {
@@ -30,14 +30,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ingredientsArr = [];
     $totalBeforeRound = 0; // total before rounding
     $totalAfterRound = 0;  // for display
+    $ingredientKeys = [
+        'Flour' => 'ingredients.flour',
+        'Sugar' => 'ingredients.sugar',
+        'Egg' => 'ingredients.egg',
+        'Powder milk' => 'ingredients.powder_milk',
+        'Soybean oil' => 'ingredients.soybean_oil',
+        'Baking powder' => 'ingredients.baking_powder',
+        'Vanilla Essence (Drop)' => 'ingredients.vanilla_essence'
+    ];
+
     foreach ($data[$oven_model] as $ingredient => $percent) {
         if ($ingredient === "Temperature") continue;
 
         if ($ingredient === "Vanilla Essence (Drop)") {
             $drops = getVanillaEssenceDrop((int)$cake_weight);
             $ingredientsArr[] = [
-                'ingredient' => $ingredient,
-                'quantity' => $drops . " drop(s)",
+                'ingredient_key' => $ingredientKeys[$ingredient] ?? $ingredient,
+                'quantity_value' => $drops,
+                'quantity_unit' => 'drops',
                 'grams' => 0
             ];
         } else {
@@ -45,8 +56,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $exact = ($cake_weight * $num) / 100; // exact float value
             $grams = round($exact, 0); // display rounded
             $ingredientsArr[] = [
-                'ingredient' => $ingredient,
-                'quantity' => $grams . " g",
+                'ingredient_key' => $ingredientKeys[$ingredient] ?? $ingredient,
+                'quantity_value' => $grams,
+                'quantity_unit' => 'grams',
                 'grams' => $exact // keep unrounded for total
             ];
             $totalBeforeRound += $exact;
