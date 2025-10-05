@@ -173,11 +173,11 @@ a{
   color: #000;
   background: #fcecec;
 }
-.form-select {
+/* .form-select {
     border: 2px solid #ccc !important; 
     border-radius: 10px !important;
     padding: 10px 15px !important;
-}
+} */
 .form-control::placeholder {
   color: #999;
 }

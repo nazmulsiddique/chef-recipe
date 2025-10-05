@@ -113,11 +113,11 @@
 
                         <div class="col-lg-12 mt-5">
                             <h2 class="pound-cake-title mb-5"> <span></span> Cake Baking Tips</h2>
-                            <p>1. If baking powder is old, the cake will collapse, so always use good quality and fresh baking powder.</p>
-                            <p>2. Never store baking powder in the refrigerator; always keep it at room temperature.</p>
-                            <p>3. Do not open the oven door repeatedly while baking.</p>
-                            <p>4. Measure all ingredients accurately, as incorrect proportions may cause your cake to turn out poorly.</p>
-                            <p>5. Use eggs at normal room temperature. Take them out of the refrigerator at least 30 minutes before use.</p>
+                            <p><strong>1. </strong>If baking powder is old, the cake will collapse, so always use good quality and fresh baking powder.</p>
+                            <p><strong>2. </strong>Never store baking powder in the refrigerator; always keep it at room temperature.</p>
+                            <p><strong>3. </strong>Do not open the oven door repeatedly while baking.</p>
+                            <p><strong>4. </strong>Measure all ingredients accurately, as incorrect proportions may cause your cake to turn out poorly.</p>
+                            <p><strong>5. </strong>Use eggs at normal room temperature. Take them out of the refrigerator at least 30 minutes before use.</p>
                         </div>
 
                         <div class="col-lg-12 mt-5">
