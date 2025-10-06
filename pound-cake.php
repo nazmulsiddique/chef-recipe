@@ -49,6 +49,7 @@
                                     <option value="M30AS3">M30AS3</option>
                                     <option value="G30SCT">G30SCT</option>
                                     <option value="25CDP">25CDP</option>
+                                    <option value="S35EDP">S35EDP</option>
                                 </select>
                             </div>
                         </div>
@@ -76,11 +77,13 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="oven-model">
-                        <div class="d-flex justify-content-center mt-3 temperature mb-4">
+                        <h4 data-i18n="recipe.cooking_model" class="fw-bold">Cooking Mode: Convection</h4>
+                        <div class="d-flex justify-content-center mt-3 temperature">
                             <h2 data-i18n="recipe.temperature_default">170 °</h2>
                             <img src="images/fire-icon.png" alt="" class="img-fluid">
                         </div>
                         <h4 data-i18n="recipe.temperature_label">Set Temperature</h4>
+                        
                         <p data-i18n="recipe.temperature_note">“The temperature may need to be increased or decreased depending on the voltage.”</p>
                         <img id="oven_image" src="" alt="" class="img-fluid">
                     </div>
@@ -96,7 +99,7 @@
                             <p data-i18n="pound.steps.step1"><strong>Step 1:</strong> Put the flour, milk powder, and baking powder in a bowl, strain them with a strainer, and mix well. </p>
                             <p data-i18n="pound.steps.step2"><strong>Step 2:</strong> In another bowl, beat the eggs with a beater. Gradually add sugar while beating until it becomes fluffy and foamy.</p>
                             <p data-i18n="pound.steps.step3"><strong>Step 3:</strong> Gradually add the flour mixture into the egg mixture and mix well. Then add soybean oil and vanilla essence (drops) and combine thoroughly.</p>
-                            <p data-i18n="pound.steps.step4"><strong>Step 4:</strong> Before pouring the batter, line the mold with baking paper and brush lightly with oil. Then pour the batter into the mold.</p>
+                            <p data-i18n="pound.steps.step4"><strong>Step 4:</strong> Before pouring the batter, cover the mold with baking paper and brush lightly with oil. Then pour the batter into the mold.</p>
                         </div>
                         <div class="col-lg-5">
                             <img class="img-fluid" src="images/details-image-one.jpg" alt="" >
@@ -123,6 +126,18 @@
                         <div class="col-lg-12 mt-5">
                             <h2 class="pound-cake-title mb-5" data-i18n="pound.note_title"> <span></span> Note</h2>
                             <p data-i18n="pound.note_text">Each recipe is tested in our lab. However, variations in ingredients and cooking methods may affect the quality of the food.</p>
+                        </div>
+
+                        <div class="col-lg-12 mt-5">
+                            <h2 class="pound-cake-title mb-5" data-i18n="pound.caution_title"> <span></span> Caution</h2>
+                            <p data-i18n="pound.cautions.caution1"><strong>1. </strong> Always bake cake in Convection mode only; Microwave mode may cause sparks and damage the magnetron.</p>
+                            <p data-i18n="pound.cautions.caution2"><strong>2. </strong> Keep enough space around the oven; do not cover it with cloth or other items. </p>
+                            <p data-i18n="pound.cautions.caution3"><strong>3. </strong> Glass and top cover may get hot — keep children away during operation. </p>
+                        </div>
+
+                        <div class="col-lg-12 mt-5">
+                            <h2 class="pound-cake-title mb-5" data-i18n="pound.video_title"> <span></span> Video Tutorial </h2>
+                            <p data-i18n="pound.video_text">For Details  <a href="">click Here</a> for The video tutorial (Upcoming)</p>
                         </div>
                         
                     </div>

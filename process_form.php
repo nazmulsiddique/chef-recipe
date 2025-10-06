@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ];
 
     foreach ($data[$oven_model] as $ingredient => $percent) {
-        if ($ingredient === "Temperature") continue;
+        if ($ingredient === "Temperature" || $ingredient === "Image") continue;
 
         if ($ingredient === "Vanilla Essence (Drop)") {
             $drops = getVanillaEssenceDrop((int)$cake_weight);
@@ -54,26 +54,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             $num = (float)str_replace("%", "", $percent);
             $exact = ($cake_weight * $num) / 100; // exact float value
-            $grams = round($exact, 0); // display rounded
+            $grams = round($exact, 0);
+            
+            if ($ingredient === "Egg") {
+                $quantityValue = $grams . ' g (1 Egg = 50 g)';
+            } else {
+                $quantityValue = $grams . ' g';
+            }
+        
+         // display rounded
             $ingredientsArr[] = [
                 'ingredient_key' => $ingredientKeys[$ingredient] ?? $ingredient,
-                'quantity_value' => $grams,
+                'quantity_value' => $quantityValue,
                 'quantity_unit' => 'grams',
                 'grams' => $exact // keep unrounded for total
             ];
             $totalBeforeRound += $exact;
-            $totalAfterRound += $grams;
+            $totalAfterRound += round($exact, 0);
         }
     }
 
     // Example oven image mapping
-    $ovenImages = [
-        'M32CTS' => 'images/M32CTS.png',
-        'M25CDS' => 'images/M25CDS.png',
-        'M30AS3' => 'images/M30AS3.png',
-        'G30SCT' => 'images/G30SCT.png',
-        '25CDP'  => 'images/25CDP.png',
-    ];
+    // $ovenImages = [
+    //     'M32CTS' => 'images/M32CTS.png',
+    //     'M25CDS' => 'images/M25CDS.png',
+    //     'M30AS3' => 'images/M30AS3.png',
+    //     'G30SCT' => 'images/G30SCT.png',
+    //     '25CDP'  => 'images/25CDP.png',
+    // ];
 
     echo json_encode([
         'status' => 'success',
@@ -81,7 +89,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'temperature' => $data[$oven_model]['Temperature'],
         'total_before_round' => round($totalBeforeRound, 2),
         'total_after_round'  => round($totalAfterRound, 0),
-        'oven_image' => $ovenImages[$oven_model] ?? ''
+        // 'oven_image' => $ovenImages[$oven_model] ?? ''
+        'oven_image' => $data[$oven_model]['Image']
     ]);
 
 }

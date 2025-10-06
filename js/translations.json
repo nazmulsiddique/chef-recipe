@@ -66,12 +66,15 @@
             "details_title": "<span></span> Details Recipe",
             "tips_title": "<span></span> Cake Baking Tips",
             "note_title": "<span></span> Note",
+            "caution_title": "<span></span> Caution",
+            "video_title": "<span></span> Video Tutorial",
+            "video_text": "For detailed information <a href=''>click here</a> for video tutorial (coming soon)",
             "note_text": "Each recipe is tested in our lab. However, variations in ingredients and cooking methods may affect the quality of the food.",
             "steps": {
                 "step1": "<strong>Step 1:</strong> Put the flour, milk powder, and baking powder in a bowl, strain them with a strainer, and mix well.",
                 "step2": "<strong>Step 2:</strong> In another bowl, beat the eggs with a beater. Gradually add sugar while beating until it becomes fluffy and foamy.",
                 "step3": "<strong>Step 3:</strong> Gradually add the flour mixture into the egg mixture and mix well. Then add soybean oil and vanilla essence (drops) and combine thoroughly.",
-                "step4": "<strong>Step 4:</strong> Before pouring the batter, line the mold with baking paper and brush lightly with oil. Then pour the batter into the mold.",
+                "step4": "<strong>Step 4:</strong> Before pouring the batter, cover the mold with baking paper and brush lightly with oil. Then pour the batter into the mold.",
                 "step5": "<strong>Step 5:</strong> Preheat the oven in convection mode at the set temperature for 5 minutes. Once preheating is complete, place the mold with the batter into the oven.",
                 "step6": "<strong>Step 6:</strong> Set the convection time for 40–60 minutes, adjust the temperature as required, and start the oven.",
                 "step7": "<strong>Step 7:</strong> Baking time may vary depending on voltage, mold, and type of cake. After about 30-40 minutes, insert a dry stick into the cake to check. If the stick comes out with batter, the cake is not ready yet. If it comes out clean, the cake is done."
@@ -82,6 +85,11 @@
                 "tip3": "<strong>3. </strong>Do not open the oven door repeatedly while baking.",
                 "tip4": "<strong>4. </strong>Measure all ingredients accurately, as incorrect proportions may cause your cake to turn out poorly.",
                 "tip5": "<strong>5. </strong>Use eggs at normal room temperature. Take them out of the refrigerator at least 30 minutes before use."
+            },
+            "cautions": {
+                "caution1": "<strong>1. </strong>Always bake cake in Convection mode only; Microwave mode may cause sparks and damage the magnetron.",
+                "caution2": "<strong>2. </strong>Keep enough space around the oven; do not cover it with cloth or other items.",
+                "caution3": "<strong>3. </strong>Glass and top cover may get hot — keep children away during operation."
             }
         },
         "form": {
@@ -106,7 +114,8 @@
             "temperature_default": "170 °",
             "temperature_label": "Set Temperature",
             "temperature_note": "“The temperature may need to be increased or decreased depending on the voltage.”",
-            "temperature_value": "{value} °"
+            "temperature_value": "{value} °",
+            "cooking_model": "Cooking Mode: Convection"
         },
         "breadcrumb": {
             "home": "Home",
@@ -148,8 +157,8 @@
             "general": "Something went wrong!"
         },
         "units": {
-            "grams": "{value} g",
-            "drops": "{value} drop(s)"
+            "grams": "{value}",
+            "drops": "{value} drops"
         },
         "ingredients": {
             "flour": "Flour",
@@ -228,6 +237,9 @@
             "details_title": "<span></span> বিস্তারিত রেসিপি",
             "tips_title": "<span></span> কেক বানানোর স্পেশাল টিপস",
             "note_title": "<span></span> দ্রষ্টব্য",
+            "caution_title": "<span></span> সতর্কতা",
+            "video_title": "<span></span> ভিডিও টিউটোরিয়াল",
+            "video_text": "বিস্তারিত জানতে <a href=''>এখানে ক্লিক করুন</a> ভিডিও টিউটোরিয়ালের জন্য (শীঘ্রই আসছে)",
             "note_text": "প্রতিটি রেসিপি আমাদের ল্যাবে পরীক্ষিত। তবে উপকরণ ও রান্নার প্রক্রিয়ার ভিন্নতার কারণে খাবারের মানে পরিবর্তন আসতে পারে।",
             "steps": {
                 "step1": "<strong>ধাপ ১:</strong>  ময়দা, গুঁড়ো দুধ এবং বেকিং পাউডার একসাথে চেলে একটি পাত্রে নিন এবং ভালোভাবে মিশিয়ে রাখুন।",
@@ -244,6 +256,11 @@
                 "tip3": "<strong>৩.</strong> বেক করার সময় বারবার ওভেনের দরজা খুলবেন না।",
                 "tip4": "<strong>৪.</strong> সব উপকরণ সঠিকভাবে মাপুন, কারণ উপকরণের পরিমাণের ভুলের জন্যও কেক ভালো নাও হতে পারে।",
                 "tip5": "<strong>৫.</strong> স্বাভাবিক তাপমাত্রার ডিম ব্যবহার করুন। ফ্রিজ থেকে অন্তত ৩০ মিনিট আগে ডিম বের করে রাখুন।"
+            },
+             "cautions": {
+                "caution1": "<strong>1. </strong>সবসময় কনভেকশন মোডে কেক বেক করুন; মাইক্রোওয়েভ মোডে কেক বেক করলে স্পার্ক হতে পারে এবং ম্যাগনেট্রন নষ্ট হয়ে যেতে পারে।",
+                "caution2": "<strong>2. </strong>ওভেনের চারপাশে পর্যাপ্ত ফাঁকা জায়গা রাখুন; কাপড় বা অন্য কোনো জিনিস দিয়ে ঢেকে রাখবেন না।",
+                "caution3": "<strong>3. </strong>কেক বেক করার সময় ওভেনের কাঁচ ও উপরের ঢাকনা গরম হতে পারে — ওভেন চলার সময় শিশুদের দূরে রাখুন।"
             }
         },
         "form": {
@@ -268,7 +285,8 @@
             "temperature_default": "১৭০ °",
             "temperature_label": "তাপমাত্রা সেট করুন",
             "temperature_note": "“ভোল্টেজের ওপর নির্ভর করে তাপমাত্রা বাড়ানো বা কমানো লাগতে পারে।”",
-            "temperature_value": "{value} °"
+            "temperature_value": "{value} °",
+            "cooking_model": "রান্নার মোড: কনভেকশন"
         },
         "breadcrumb": {
             "home": "হোম",
