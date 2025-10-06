@@ -11,11 +11,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item px-4"><a class="nav-link px-0" href="#" data-i18n="nav.home">Home</a></li>
-                    <li class="nav-item px-4"><a class="nav-link px-0" href="#" data-i18n="nav.products">Products</a></li>
-                    <li class="nav-item px-4"><a class="nav-link px-0" href="#" data-i18n="nav.about">About Us</a></li>
-                    <li class="nav-item px-4"><a class="nav-link px-0" href="#" data-i18n="nav.tips">How To & Tips</a></li>
-                    <li class="nav-item px-4"><a class="nav-link px-0" href="#" data-i18n="nav.blog">Blog</a></li>
+                    <li class="nav-item px-4"><a class="nav-link px-0" href="https://waltonbd.com" target="_blank" data-i18n="nav.products">Products</a></li>
+                    <li class="nav-item px-4"><a class="nav-link px-0" href="https://waltonbd.com/about" target="_blank" data-i18n="nav.about">About Us</a></li>
+                    <li class="nav-item px-4"><a class="nav-link px-0" href="https://waltonbd.com/how-to-and-tips" target="_blank" data-i18n="nav.tips">Tips & Tricks</a></li>
+                    <li class="nav-item px-4"><a class="nav-link px-0" href="https://blog.waltonbd.com" target="_blank" data-i18n="nav.blog">Blog</a></li>
                 </ul>
                 <div class="language">
                     <select class="form-select border-0 bg-transparent fw-semibold" id="languageSwitcher">

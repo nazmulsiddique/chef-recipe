@@ -8,16 +8,16 @@
             "bangla": "Bangla"
         },
         "nav": {
-            "home": "Home",
             "products": "Products",
             "about": "About Us",
-            "tips": "How To & Tips",
+            "tips": "Tips & Tricks",
             "blog": "Blog"
         },
         "index": {
             "hero": {
                 "title": "Chef’s Perfect Recipe",
-                "description": "With Chef’s Perfect Recipe, cooking becomes easier and more reliable. It adjusts the right ingredients, time, and settings for your oven to give you perfect results every time. Whether you’re baking a cake or making a pizza, our recipe calculator makes cooking simpler, faster, and tastier."
+                "description": "With Chef’s Perfect Recipe, cooking becomes easier and more reliable. It adjusts the right ingredients, time, and settings for your oven to give you perfect results every time. Whether you’re baking a cake or making a pizza, our recipe calculator makes cooking simpler, faster, and tastier.",
+                "home_page_title": "<span></span>  Walton Special Baking & Cooking Item"
             }
         },
         "labels": {
@@ -179,20 +179,20 @@
             "bangla": "বাংলা"
         },
         "nav": {
-            "home": "হোম",
-            "products": "পণ্যসমূহ",
+            "products": "প্রোডাক্টস",
             "about": "আমাদের সম্পর্কে",
-            "tips": "কীভাবে ও টিপস",
+            "tips": "টিপস & ট্রিক্স",
             "blog": "ব্লগ"
         },
         "index": {
             "hero": {
                 "title": "সেফ'স পারফেক্ট রেসিপি",
-                "description": "সেফ'স পারফেক্ট রেসিপির সাথে রান্না হবে আরও সহজ আর নিশ্চিন্ত। আপনার ওভেনের জন্য সঠিক উপকরণ, সময় আর সেটিংস মিলিয়ে এটি প্রতিবারই দেবে নিখুঁত ফলাফল। আপনি কেক বেক করুন বা পিজ্জা বানান আমাদের রেসিপি ক্যালকুলেটর রান্নাকে করে তুলবে আরও সহজ, দ্রুত আর সুস্বাদু।"
+                "description": "সেফ'স পারফেক্ট রেসিপির সাথে রান্না হবে আরও সহজ আর নিশ্চিন্ত। আপনার ওভেনের জন্য সঠিক উপকরণ, সময় আর সেটিংস মিলিয়ে এটি প্রতিবারই দেবে নিখুঁত ফলাফল। আপনি কেক বেক করুন বা পিজ্জা বানান আমাদের রেসিপি ক্যালকুলেটর রান্নাকে করে তুলবে আরও সহজ, দ্রুত আর সুস্বাদু।",
+                "home_page_title": "<span></span> ওয়ালটন স্পেশাল বেকিং ও কুকিং আইটেম"
             }
         },
         "labels": {
-            "upcoming": "(আসছে শীঘ্রই)"
+            "upcoming": "(শীঘ্রই আসছে)"
         },
         "categories": {
             "pound_cake": {
@@ -258,9 +258,9 @@
                 "tip5": "<strong>৫.</strong> স্বাভাবিক তাপমাত্রার ডিম ব্যবহার করুন। ফ্রিজ থেকে অন্তত ৩০ মিনিট আগে ডিম বের করে রাখুন।"
             },
              "cautions": {
-                "caution1": "<strong>1. </strong>সবসময় কনভেকশন মোডে কেক বেক করুন; মাইক্রোওয়েভ মোডে কেক বেক করলে স্পার্ক হতে পারে এবং ম্যাগনেট্রন নষ্ট হয়ে যেতে পারে।",
-                "caution2": "<strong>2. </strong>ওভেনের চারপাশে পর্যাপ্ত ফাঁকা জায়গা রাখুন; কাপড় বা অন্য কোনো জিনিস দিয়ে ঢেকে রাখবেন না।",
-                "caution3": "<strong>3. </strong>কেক বেক করার সময় ওভেনের কাঁচ ও উপরের ঢাকনা গরম হতে পারে — ওভেন চলার সময় শিশুদের দূরে রাখুন।"
+                "caution1": "<strong>১. </strong>সবসময় কনভেকশন মোডে কেক বেক করুন; মাইক্রোওয়েভ মোডে কেক বেক করলে স্পার্ক হতে পারে এবং ম্যাগনেট্রন নষ্ট হয়ে যেতে পারে।",
+                "caution2": "<strong>২. </strong>ওভেনের চারপাশে পর্যাপ্ত ফাঁকা জায়গা রাখুন; কাপড় বা অন্য কোনো জিনিস দিয়ে ঢেকে রাখবেন না।",
+                "caution3": "<strong>৩. </strong>কেক বেক করার সময় ওভেনের কাঁচ ও উপরের ঢাকনা গরম হতে পারে — ওভেন চলার সময় শিশুদের দূরে রাখুন।"
             }
         },
         "form": {

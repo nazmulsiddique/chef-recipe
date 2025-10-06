@@ -29,6 +29,9 @@
 
     <div class="category-area mt-5 mb-5">
         <div class="container">
+            <div class="page-title-area mb-4">
+               <h4 class="pound-cake-title mb-5" data-i18n="index.hero.home_page_title"> <span></span> Walton Special Baking & Cooking Item</h4>
+            </div>
             <div class="row">
                 <div class="col-lg-3 mt-4">
                     <a href="pound-cake.php">

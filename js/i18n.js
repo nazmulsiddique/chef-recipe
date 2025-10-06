@@ -1,6 +1,6 @@
 (function () {
     const STORAGE_KEY = 'recipe_language';
-    const DEFAULT_LANG = 'en';
+    const DEFAULT_LANG = 'bn';
     let translations = {};
     let currentLang = localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG;
     let isReady = false;
