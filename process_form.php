@@ -28,8 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     // Generate recipe
     $ingredientsArr = [];
-    $totalBeforeRound = 0; // total before rounding
-    $totalAfterRound = 0;  // for display
+    $totalBeforeRound = 0;
+    $totalAfterRound = 0;
     $ingredientKeys = [
         'Flour' => 'ingredients.flour',
         'Sugar' => 'ingredients.sugar',
@@ -41,38 +41,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ];
 
     foreach ($data[$oven_model] as $ingredient => $percent) {
-        if ($ingredient === "Temperature" || $ingredient === "Image") continue;
+        // Skip non-ingredient keys
+        if (in_array($ingredient, ["Temperature", "Image"])) continue;
 
+        // Handle Vanilla Essence (Drop)
         if ($ingredient === "Vanilla Essence (Drop)") {
             $drops = getVanillaEssenceDrop((int)$cake_weight);
+
             $ingredientsArr[] = [
-                'ingredient_key' => $ingredientKeys[$ingredient] ?? $ingredient,
-                'quantity_value' => $drops,
-                'quantity_unit' => 'drops',
-                'grams' => 0
+                'ingredient_key'   => $ingredientKeys[$ingredient] ?? $ingredient,
+                'quantity_value'   => $drops . ' drops',
+                'quantity_unit'    => 'drops',
+                'grams'            => 0
             ];
-        } else {
-            $num = (float)str_replace("%", "", $percent);
-            $exact = ($cake_weight * $num) / 100; // exact float value
-            $grams = round($exact, 0);
-            
-            if ($ingredient === "Egg") {
-                $quantityValue = $grams . ' g (1 Egg = 50 g)';
-            } else {
-                $quantityValue = $grams . ' g';
-            }
-        
-         // display rounded
-            $ingredientsArr[] = [
-                'ingredient_key' => $ingredientKeys[$ingredient] ?? $ingredient,
-                'quantity_value' => $quantityValue,
-                'quantity_unit' => 'grams',
-                'grams' => $exact // keep unrounded for total
-            ];
-            $totalBeforeRound += $exact;
-            $totalAfterRound += round($exact, 0);
+
+            continue;
         }
+
+        // Calculate grams from percent
+        $exact = ($cake_weight * (float)$percent) / 100; // exact float value
+        $grams = round($exact, 0);
+
+        // Handle Egg specially
+        if ($ingredient === "Egg") {
+            $quantityValue = $grams . ' g (1 Egg = 50 g)';
+        } else {
+            $quantityValue = $grams . ' g';
+        }
+
+        // Store ingredient info
+        $ingredientsArr[] = [
+            'ingredient_key'   => $ingredientKeys[$ingredient] ?? $ingredient,
+            'quantity_value'   => $quantityValue,
+            'quantity_unit'    => 'grams',
+            'grams'            => $exact // keep unrounded for total
+        ];
+
+        // Update totals
+        $totalBeforeRound += $exact;
+        $totalAfterRound  += $grams;
     }
+
 
     // Example oven image mapping
     // $ovenImages = [
@@ -88,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'ingredients' => $ingredientsArr,
         'temperature' => $data[$oven_model]['Temperature'],
         'total_before_round' => round($totalBeforeRound, 2),
-        'total_after_round'  => round($totalAfterRound, 0),
+        'total_after_round'  => round($totalBeforeRound, 0),
         // 'oven_image' => $ovenImages[$oven_model] ?? ''
         'oven_image' => $data[$oven_model]['Image']
     ]);

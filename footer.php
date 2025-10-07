@@ -1,3 +1,4 @@
+    <?php include 'helper_functions.php'; ?>
     <footer>
         <img src="images/footer-curve-new.png" alt="" class="img-fluid">
         <div class="footer-area">
@@ -27,7 +28,7 @@
                     <div class="col-md-4 text-md-end">
                         <h5 data-i18n="footer.support">Support</h5>
                         <ul class="ps-3 list-unstyled">
-                            <li><a href="tel:16216" class="text-black text-decoration-none">16267/08000016267</a></li>
+                            <li><a href="tel:16216" class="text-black text-decoration-none" data-i18n="footer.contact">16267/08000016267</a></li>
                         </ul>
                         <h5 class="mt-md-5 mt-3" data-i18n="footer.follow">FOLLOW WALTON</h5>
                         <div class="ps-3 mb-4">
@@ -55,6 +56,7 @@
                 <div class="row">
                     <div class="col-12 copyright">
                         <p class="text-center pt-3 text-black" data-i18n="footer.copyright" data-year="<?php echo date('Y'); ?>">Copyright © <?php echo date("Y"); ?> and all rights reserved by - All Sister Concerns of WALTON Group</p>
+
                     </div>
                 </div>
             </div>
