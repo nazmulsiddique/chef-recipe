@@ -5,6 +5,72 @@
     let currentLang = localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG;
     let isReady = false;
 
+    const DIGITS = {
+        en: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+        bn: ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯']
+    };
+
+    function convertDigits(value, source, target) {
+        if (value === null || value === undefined) {
+            return '';
+        }
+
+        const stringValue = String(value);
+
+        let result = '';
+
+        for (let index = 0; index < stringValue.length; index += 1) {
+            const character = stringValue.charAt(index);
+            const digitIndex = source.indexOf(character);
+
+            if (digitIndex > -1) {
+                result += target[digitIndex];
+            } else {
+                result += character;
+            }
+        }
+
+        return result;
+    }
+
+    function localizeDigits(value) {
+        if (currentLang !== 'bn') {
+            if (value === null || value === undefined) {
+                return '';
+            }
+
+            return String(value);
+        }
+
+        return convertDigits(value, DIGITS.en, DIGITS.bn);
+    }
+
+    function normalizeDigits(value) {
+        if (value === null || value === undefined) {
+            return '';
+        }
+
+        return convertDigits(value, DIGITS.bn, DIGITS.en);
+    }
+
+    function localizeNumber(value) {
+        if (value === null || value === undefined || value === '') {
+            return '';
+        }
+
+        return currentLang === 'bn'
+            ? convertDigits(value, DIGITS.en, DIGITS.bn)
+            : String(value);
+    }
+
+    function normalizeNumber(value) {
+        if (value === null || value === undefined || value === '') {
+            return '';
+        }
+
+        return convertDigits(value, DIGITS.bn, DIGITS.en);
+    }
+
     function resolveTranslation(lang, key) {
         if (!translations[lang]) {
             return undefined;
@@ -42,7 +108,7 @@
             return key;
         }
 
-        return output;
+        return localizeDigits(output);
     }
 
     function collectReplacements(element) {
@@ -155,6 +221,8 @@
     window.i18n = {
         t: translateKey,
         setLanguage,
+        localizeNumber,
+        normalizeNumber,
         get current() {
             return currentLang;
         },

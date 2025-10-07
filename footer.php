@@ -98,7 +98,7 @@
     </script>
 
     <script src="js/i18n.js"></script>
-
+<script>
 </body>
 
 </html>

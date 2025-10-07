@@ -16,4 +16,17 @@ function en2bn($number)
     $en = array("1", "2", "3", "4", "5", "6", "7", "8", "9", "0");
     return str_replace($en, $bn, $number);
 }
+
+function bn2en($number)
+{
+    if ($number === null) {
+        return $number;
+    }
+
+    $bn = array("১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯", "০");
+    $en = array("1", "2", "3", "4", "5", "6", "7", "8", "9", "0");
+
+    return str_replace($bn, $en, $number);
+}
 ?>
+

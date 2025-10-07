@@ -158,8 +158,9 @@
             "general": "Something went wrong!"
         },
         "units": {
-            "grams": "{value}",
-            "drops": "{value} drops"
+            "grams": "{value} g",
+            "drops": "{value} drops",
+            "egg_equivalent": "(1 Egg = {value} g)"
         },
         "ingredients": {
             "flour": "Flour",
@@ -331,13 +332,14 @@
         },
         "units": {
             "grams": "{value} গ্রাম",
-            "drops": "{value} ফোঁটা"
+            "drops": "{value} ফোঁটা",
+            "egg_equivalent": "(১টি ডিম = {value} গ্রাম)"
         },
         "ingredients": {
             "flour": "ময়দা",
             "sugar": "চিনি",
             "egg": "ডিম",
-            "powder_milk": "দুধের গুঁড়ো",
+            "powder_milk": "গুঁড়ো দুধ",
             "soybean_oil": "সয়াবিন তেল",
             "baking_powder": "বেকিং পাউডার",
             "vanilla_essence": "ভ্যানিলা এসেন্স (ড্রপ)"

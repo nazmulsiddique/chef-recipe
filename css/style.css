@@ -1,4 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Macondo&display=swap');
+/* Normal style */
+@font-face {
+    font-family: 'LiSirajeeAlima';
+    src: url('../fonts/Li Sirajee Alima Unicode.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Italic style */
+@font-face {
+    font-family: 'LiSirajeeAlima';
+    src: url('../fonts/Li Sirajee Alima Unicode Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+html[lang="bn"] .hero-title {
+    font-family: 'LiSirajeeAlima', sans-serif;
+}
 body{
     background: #FFF5DE;
     font-family: "Inter", sans-serif;

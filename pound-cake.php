@@ -1,6 +1,6 @@
 <?php include 'header.php'; ?>
 
-<body>
+
     <div class="top-bar-area">
         <?php include 'navbar.php'; ?>
         <section class="pb-5 pb-lg-0 mt-5">
@@ -36,7 +36,7 @@
                         <div class="col-lg-4">
                             <div class="mb-3">
                                 <label for="cake_weight" class="form-label" data-i18n="form.cake_weight.label">How many grams of cake do you want to make?</label>
-                                <input type="number" class="form-control" id="cake_weight" name="cake_weight" placeholder="Enter your cake weight in Grams" data-i18n="form.cake_weight.placeholder" data-i18n-attr="placeholder" required>
+                                <input type="text" class="form-control" id="cake_weight" name="cake_weight" inputmode="numeric" pattern="[0-9০-৯]*" placeholder="Enter your cake weight in Grams" data-i18n="form.cake_weight.placeholder" data-i18n-attr="placeholder" required>
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -154,9 +154,68 @@
     let lastResponse = null;
     let lastErrors = null;
     let lastGeneralMessageKey = null;
+    const cakeWeightInput = document.getElementById('cake_weight');
 
-    function translateQuantity(value, unit) {
-        return i18n.t(`units.${unit}`, { value: value });
+    function sanitizeNumericInput(value) {
+        if (value === null || value === undefined) {
+            return '';
+        }
+
+        const normalized = (window.i18n ? i18n.normalizeNumber(value) : String(value));
+
+        return normalized.replace(/[^0-9]/g, '');
+    }
+
+    function updateCakeWeightDisplay() {
+        if (!cakeWeightInput) {
+            return;
+        }
+
+        const rawValue = cakeWeightInput.dataset.rawValue !== undefined
+            ? cakeWeightInput.dataset.rawValue
+            : sanitizeNumericInput(cakeWeightInput.value);
+
+        cakeWeightInput.dataset.rawValue = rawValue;
+
+        if (window.i18n && i18n.current === 'bn') {
+            cakeWeightInput.value = i18n.localizeNumber(rawValue);
+        } else {
+            cakeWeightInput.value = rawValue;
+        }
+    }
+
+    if (cakeWeightInput) {
+        updateCakeWeightDisplay();
+
+        cakeWeightInput.addEventListener('input', function (event) {
+            const sanitized = sanitizeNumericInput(event.target.value);
+            event.target.dataset.rawValue = sanitized;
+
+            if (window.i18n && i18n.current === 'bn') {
+                event.target.value = i18n.localizeNumber(sanitized);
+            } else {
+                event.target.value = sanitized;
+            }
+        });
+    }
+
+    function translateQuantity(value, unit, noteKey, noteParams) {
+        let translated = value;
+
+        if (unit) {
+            translated = i18n.t(`units.${unit}`, { value: value });
+        } else if (value !== undefined && value !== null) {
+            translated = i18n.localizeNumber(value);
+        }
+
+        if (noteKey) {
+            const note = i18n.t(noteKey, noteParams || {});
+            if (note) {
+                translated = `${translated} ${note}`.trim();
+            }
+        }
+
+        return translated;
     }
 
     function renderErrors(errors) {
@@ -187,7 +246,12 @@
 
         data.ingredients.forEach(item => {
             const name = i18n.t(item.ingredient_key);
-            const quantity = translateQuantity(item.quantity_value, item.quantity_unit);
+            const quantity = translateQuantity(
+                item.quantity_value,
+                item.quantity_unit,
+                item.note_key,
+                item.note_params
+            );
 
             tbody += `
                 <tr>
@@ -243,10 +307,23 @@
             $(".error-msg").remove();
             clearGeneralMessage();
 
+            const payload = {};
+
+            $(this).serializeArray().forEach(({ name, value }) => {
+                payload[name] = value;
+            });
+
+            if (cakeWeightInput) {
+                const rawValue = cakeWeightInput.dataset.rawValue || sanitizeNumericInput(cakeWeightInput.value);
+                payload.cake_weight = rawValue;
+                cakeWeightInput.dataset.rawValue = rawValue;
+                updateCakeWeightDisplay();
+            }
+
             $.ajax({
                 url: "process_form.php",
                 type: "POST",
-                data: $(this).serialize(),
+                data: payload,
                 dataType: "json",
                 success: function (response) {
                     handleResponse(response);
@@ -259,6 +336,7 @@
     });
 
     document.addEventListener('i18n:change', function () {
+        updateCakeWeightDisplay();
         renderErrors(lastErrors);
         renderRecipe(lastResponse);
 
@@ -268,6 +346,7 @@
     });
 
     if (window.i18n && i18n.ready) {
+        updateCakeWeightDisplay();
         renderErrors(lastErrors);
         renderRecipe(lastResponse);
 

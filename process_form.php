@@ -5,7 +5,15 @@ include 'helper_functions.php';
 header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $cake_weight = isset($_POST['cake_weight']) ? (float)$_POST['cake_weight'] : 0;
+    $rawCakeWeight = isset($_POST['cake_weight']) ? $_POST['cake_weight'] : '';
+
+    if (function_exists('bn2en')) {
+        $rawCakeWeight = bn2en($rawCakeWeight);
+    }
+
+    $rawCakeWeight = preg_replace('/[^0-9]/', '', (string)$rawCakeWeight);
+
+    $cake_weight = $rawCakeWeight !== '' ? (float)$rawCakeWeight : 0;
     $oven_model  = isset($_POST['oven_model']) ? trim($_POST['oven_model']) : '';
 
     $errors = [];
@@ -50,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $ingredientsArr[] = [
                 'ingredient_key'   => $ingredientKeys[$ingredient] ?? $ingredient,
-                'quantity_value'   => $drops . ' drops',
+                'quantity_value'   => $drops,
                 'quantity_unit'    => 'drops',
                 'grams'            => 0
             ];
@@ -62,20 +70,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $exact = ($cake_weight * (float)$percent) / 100; // exact float value
         $grams = round($exact, 0);
 
-        // Handle Egg specially
-        if ($ingredient === "Egg") {
-            $quantityValue = $grams . ' g (1 Egg = 50 g)';
-        } else {
-            $quantityValue = $grams . ' g';
-        }
-
-        // Store ingredient info
-        $ingredientsArr[] = [
+        $ingredientData = [
             'ingredient_key'   => $ingredientKeys[$ingredient] ?? $ingredient,
-            'quantity_value'   => $quantityValue,
+            'quantity_value'   => $grams,
             'quantity_unit'    => 'grams',
             'grams'            => $exact // keep unrounded for total
         ];
+
+        if ($ingredient === "Egg") {
+            $ingredientData['note_key'] = 'units.egg_equivalent';
+            $ingredientData['note_params'] = ['value' => 50];
+        }
+
+        // Store ingredient info
+        $ingredientsArr[] = $ingredientData;
 
         // Update totals
         $totalBeforeRound += $exact;
