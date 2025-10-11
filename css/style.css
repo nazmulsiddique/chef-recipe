@@ -16,6 +16,7 @@
 }
 html[lang="bn"] .hero-title {
     font-family: 'LiSirajeeAlima', sans-serif;
+    font-size: 70px;
 }
 body{
     background: #FFF5DE;
@@ -279,6 +280,9 @@ tfoot tr td {
         padding-top: 30px;
         margin-bottom: 25px;
     }
+    html[lang="bn"] .hero-title {
+        font-size: 35px;
+    }
     .pound-cake-title {
         font-size: 24px;
     }
@@ -300,6 +304,11 @@ tfoot tr td {
     .pound-cake label {
         font-size: 18px;
     }
+    .footer-area li{
+        list-style: none !important;
+        padding: 8px;
+    }
+
 }
 
 /* Small devices (phones landscape, 576px - 767px) */

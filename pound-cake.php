@@ -34,7 +34,7 @@
                 <form id="cakeForm">
                     <div class="row">
                         <div class="col-lg-4">
-                            <div class="mb-3">
+                            <div class="mb-3 me-md-5">
                                 <label for="cake_weight" class="form-label" data-i18n="form.cake_weight.label">How many grams of cake do you want to make?</label>
                                 <input type="text" class="form-control" id="cake_weight" name="cake_weight" inputmode="numeric" pattern="[0-9০-৯]*" placeholder="Enter your cake weight in Grams" data-i18n="form.cake_weight.placeholder" data-i18n-attr="placeholder" required>
                             </div>
@@ -137,7 +137,7 @@
 
                         <div class="col-lg-12 mt-5">
                             <h2 class="pound-cake-title mb-5" data-i18n="pound.video_title"> <span></span> Video Tutorial </h2>
-                            <p data-i18n="pound.video_text">For Details  <a href="">click Here</a> for The video tutorial (Upcoming)</p>
+                            <p data-i18n="pound.video_text">For Details  <a href="" style="color: blue !important;">click Here</a> for The video tutorial (Upcoming)</p>
                         </div>
                         
                     </div>

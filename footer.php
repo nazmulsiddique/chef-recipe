@@ -4,7 +4,7 @@
         <div class="footer-area">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 text-center text-md-start">
                         <h5 data-i18n="footer.who_we_are">Who We Are</h5>
                         <ul class="ps-3">
                             <li><a href="index.php" class="text-black text-decoration-none" data-i18n="footer.links.home">Home</a></li>
@@ -15,7 +15,7 @@
                             <li><a href="https://waltonbd.com/accreditation" target="_blank" class="text-black text-decoration-none" data-i18n="footer.links.accreditation">Accreditation</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 text-center text-md-start">
                         <h5 data-i18n="footer.help_title">How we can help you?</h5>
                         <ul class="ps-3">
                             <li><a href="https://waltonbd.com/contact" target="_blank" class="text-black text-decoration-none" data-i18n="footer.links.contact">Contact Us</a></li>
@@ -25,7 +25,7 @@
                             <li><a href="https://waltonbd.com/about-product-registration" target="_blank" class="text-black text-decoration-none" data-i18n="footer.links.product_registration">About Product Registration</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-4 text-md-end">
+                    <div class="col-md-4 text-center text-md-end">
                         <h5 data-i18n="footer.support">Support</h5>
                         <ul class="ps-3 list-unstyled">
                             <li><a href="tel:16216" class="text-black text-decoration-none" data-i18n="footer.contact">16267/08000016267</a></li>
@@ -98,7 +98,6 @@
     </script>
 
     <script src="js/i18n.js"></script>
-<script>
 </body>
 
 </html>

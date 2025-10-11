@@ -68,7 +68,7 @@
             "note_title": "<span></span> Note",
             "caution_title": "<span></span> Caution",
             "video_title": "<span></span> Video Tutorial",
-            "video_text": "For detailed information <a href=''>click here</a> for video tutorial (coming soon)",
+            "video_text": "For detailed information <a href='' style='color: blue !important;'>click here</a> for video tutorial (coming soon)",
             "note_text": "Each recipe is tested in our lab. However, variations in ingredients and cooking methods may affect the quality of the food.",
             "steps": {
                 "step1": "<strong>Step 1:</strong> Put the flour, milk powder, and baking powder in a bowl, strain them with a strainer, and mix well.",
@@ -188,8 +188,8 @@
         },
         "index": {
             "hero": {
-                "title": "সেফ'স পারফেক্ট রেসিপি",
-                "description": "সেফ'স পারফেক্ট রেসিপির সাথে রান্না হবে আরও সহজ আর নিশ্চিন্ত। আপনার ওভেনের জন্য সঠিক উপকরণ, সময় আর সেটিংস মিলিয়ে এটি প্রতিবারই দেবে নিখুঁত ফলাফল। আপনি কেক বেক করুন বা পিজ্জা বানান আমাদের রেসিপি ক্যালকুলেটর রান্নাকে করে তুলবে আরও সহজ, দ্রুত আর সুস্বাদু।",
+                "title": "শেফ'স পারফেক্ট রেসিপি",
+                "description": "শেফ'স পারফেক্ট রেসিপির সাথে রান্না হবে আরও সহজ আর নিশ্চিন্ত। আপনার ওভেনের জন্য সঠিক উপকরণ, সময় আর সেটিংস মিলিয়ে এটি প্রতিবারই দেবে নিখুঁত ফলাফল। আপনি কেক বেক করুন বা পিজ্জা বানান আমাদের রেসিপি ক্যালকুলেটর রান্নাকে করে তুলবে আরও সহজ, দ্রুত আর সুস্বাদু।",
                 "home_page_title": "<span></span> ওয়ালটন স্পেশাল বেকিং ও কুকিং আইটেম"
             }
         },
@@ -241,7 +241,7 @@
             "note_title": "<span></span> দ্রষ্টব্য",
             "caution_title": "<span></span> সতর্কতা",
             "video_title": "<span></span> ভিডিও টিউটোরিয়াল",
-            "video_text": "বিস্তারিত জানতে <a href=''>এখানে ক্লিক করুন</a> ভিডিও টিউটোরিয়ালের জন্য (শীঘ্রই আসছে)",
+            "video_text": "বিস্তারিত জানতে <a href='' style='color: blue !important;'>এখানে ক্লিক করুন</a> ভিডিও টিউটোরিয়ালের জন্য (শীঘ্রই আসছে)",
             "note_text": "প্রতিটি রেসিপি আমাদের ল্যাবে পরীক্ষিত। তবে উপকরণ ও রান্নার প্রক্রিয়ার ভিন্নতার কারণে খাবারের মানে পরিবর্তন আসতে পারে।",
             "steps": {
                 "step1": "<strong>ধাপ ১:</strong>  ময়দা, গুঁড়ো দুধ এবং বেকিং পাউডার একসাথে চেলে একটি পাত্রে নিন এবং ভালোভাবে মিশিয়ে রাখুন।",
