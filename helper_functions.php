@@ -1,63 +1,32 @@
 <?php
-
-/* Normalize numeric input */
-function normalizeNumber($value)
-{
-    if (function_exists('bn2en')) {
-        $value = bn2en($value);
+function getVanillaEssenceDrop($value) {
+    if ($value == 100) {
+        return 2;
+    } elseif ($value >= 101 && $value <= 2000) {
+        return intdiv($value - 1, 100) + 1;
     }
-    return (float)preg_replace('/[^0-9.]/', '', (string)$value);
+    return "";
+}
+function en2bn($number)
+{
+    if ($number == 0) {
+        return $number;
+    }
+    $bn = array("১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯", "০");
+    $en = array("1", "2", "3", "4", "5", "6", "7", "8", "9", "0");
+    return str_replace($en, $bn, $number);
 }
 
-/* Vanilla Essence Drops */
-function getVanillaEssenceDrop($value)
+function bn2en($number)
 {
-    $value = (int)$value;
-    if ($value < 100) return 0;
-    return max(2, (int)ceil($value / 100));
-}
-
-/* Egg pieces calculation (1 egg ≈ 50g) */
-function calculateEggPcs($grams)
-{
-    return round($grams / 50, 1);
-}
-
-/* Convert grams to kitchen measurement */
-function gramsToMeasurement($ingredient, $grams, $measurementData)
-{
-    $map = [
-        'Flour' => 'flour',
-        'Sugar' => 'sugar',
-        'Soybean oil' => 'oil',
-        'Powder milk' => 'milk_powder',
-        'Baking powder' => 'baking_powder'
-    ];
-
-    if (!isset($map[$ingredient])) return '—';
-
-    $key = $map[$ingredient];
-    $remaining = $grams;
-    $result = [];
-
-    foreach (array_reverse($measurementData) as $row) {
-
-        if (!isset($row[$key])) continue;
-
-        $unitGram = $row[$key];
-        if ($remaining >= $unitGram) {
-
-            $count = floor($remaining / $unitGram);
-            if ($count > 0) {
-
-                // ✅ Clean label (1 cup → cup)
-                $label = preg_replace('/^1\s*/', '', $row['label']);
-
-                $result[] = ($count > 1 ? $count . ' ' : '') . $label;
-                $remaining -= $count * $unitGram;
-            }
-        }
+    if ($number === null) {
+        return $number;
     }
 
-    return $result ? implode(' + ', $result) : '—';
+    $bn = array("১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯", "০");
+    $en = array("1", "2", "3", "4", "5", "6", "7", "8", "9", "0");
+
+    return str_replace($bn, $en, $number);
 }
+?>
+
