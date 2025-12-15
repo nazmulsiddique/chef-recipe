@@ -61,7 +61,7 @@
 
                 <!-- Result will show here -->
             <div id="responseMsg" class="mt-3"></div>
-            <div class="row mt-5 d-none" id="recipeDiv">
+            <div class="row mt-5" id="recipeDiv">
                 <div class="col-lg-8">
                     <table class="table">
                         <thead>
@@ -75,19 +75,7 @@
                         <tfoot></tfoot>
                     </table>
                 </div>
-                <div class="col-lg-4">
-                    <div class="oven-model">
-                        <h4 data-i18n="recipe.cooking_model" class="fw-bold">Cooking Mode: Convection</h4>
-                        <div class="d-flex justify-content-center mt-3 temperature">
-                            <h2 data-i18n="recipe.temperature_default">170 °</h2>
-                            <img src="images/fire-icon.png" alt="" class="img-fluid">
-                        </div>
-                        <h4 data-i18n="recipe.temperature_label">Set Temperature</h4>
-                        
-                        <p data-i18n="recipe.temperature_note">“The temperature may need to be increased or decreased depending on the voltage.”</p>
-                        <img id="oven_image" src="" alt="" class="img-fluid">
-                    </div>
-                </div>
+                
             </div>
                 
                 <div class="details-info mt-5">
@@ -156,159 +144,139 @@
     let lastGeneralMessageKey = null;
     const cakeWeightInput = document.getElementById('cake_weight');
 
+    /* ------------------ SANITIZE INPUT ------------------ */
     function sanitizeNumericInput(value) {
-        if (value === null || value === undefined) {
-            return '';
-        }
-
+        if (value === null || value === undefined) return '';
         const normalized = (window.i18n ? i18n.normalizeNumber(value) : String(value));
-
         return normalized.replace(/[^0-9]/g, '');
     }
 
     function updateCakeWeightDisplay() {
-        if (!cakeWeightInput) {
-            return;
-        }
-
+        if (!cakeWeightInput) return;
         const rawValue = cakeWeightInput.dataset.rawValue !== undefined
             ? cakeWeightInput.dataset.rawValue
             : sanitizeNumericInput(cakeWeightInput.value);
 
         cakeWeightInput.dataset.rawValue = rawValue;
 
-        if (window.i18n && i18n.current === 'bn') {
-            cakeWeightInput.value = i18n.localizeNumber(rawValue);
-        } else {
-            cakeWeightInput.value = rawValue;
-        }
+        cakeWeightInput.value = (window.i18n && i18n.current === 'bn')
+            ? i18n.localizeNumber(rawValue)
+            : rawValue;
     }
 
     if (cakeWeightInput) {
         updateCakeWeightDisplay();
-
         cakeWeightInput.addEventListener('input', function (event) {
             const sanitized = sanitizeNumericInput(event.target.value);
             event.target.dataset.rawValue = sanitized;
-
-            if (window.i18n && i18n.current === 'bn') {
-                event.target.value = i18n.localizeNumber(sanitized);
-            } else {
-                event.target.value = sanitized;
-            }
+            event.target.value = (window.i18n && i18n.current === 'bn')
+                ? i18n.localizeNumber(sanitized)
+                : sanitized;
         });
     }
 
+  
+
+    /* ------------------ TRANSLATE ------------------ */
     function translateQuantity(value, unit, noteKey, noteParams) {
         let translated = value;
-
-        if (unit) {
-            translated = i18n.t(`units.${unit}`, { value: value });
-        } else if (value !== undefined && value !== null) {
-            translated = i18n.localizeNumber(value);
-        }
+        if (unit) translated = (window.i18n ? i18n.t(`units.${unit}`, { value }) : `${value} ${unit}`);
+        else if (value !== undefined && value !== null) translated = (window.i18n ? i18n.localizeNumber(value) : value);
 
         if (noteKey) {
-            const note = i18n.t(noteKey, noteParams || {});
-            if (note) {
-                translated = `${translated} ${note}`.trim();
-            }
+            const note = (window.i18n ? i18n.t(noteKey, noteParams || {}) : '');
+            if (note) translated = `${translated} ${note}`.trim();
         }
-
         return translated;
     }
 
+    /* ------------------ RENDER ERRORS ------------------ */
     function renderErrors(errors) {
-        $(".error-msg").remove();
-        if (!errors) {
-            return;
-        }
-
-        if (errors.cake_weight) {
-            $("#cake_weight").after(`<div class="text-danger error-msg">${i18n.t(errors.cake_weight)}</div>`);
-        }
-
-        if (errors.oven_model) {
-            $("#oven_model").after(`<div class="text-danger error-msg">${i18n.t(errors.oven_model)}</div>`);
-        }
-    }
-
-    function renderRecipe(data) {
-        if (!data || data.status !== 'success') {
-            return;
-        }
-
-        if (!data.ingredients || data.ingredients.length === 0) {
-            return;
-        }
-
-        let tbody = '';
-
-        data.ingredients.forEach(item => {
-            const name = i18n.t(item.ingredient_key);
-            const quantity = translateQuantity(
-                item.quantity_value,
-                item.quantity_unit,
-                item.note_key,
-                item.note_params
-            );
-
-            tbody += `
-                <tr>
-                    <td>${name}</td>
-                    <td>${quantity}</td>
-                </tr>
-            `;
-        });
-
-        $("#recipeDiv table tbody").html(tbody);
-        $("#recipeDiv table tfoot").html(`
-            <tr>
-                <td class="fw-bold">${i18n.t('table.total')}</td>
-                <td class="fw-bold">${translateQuantity(data.total_after_round, 'grams')}</td>
-            </tr>
-        `);
-
-        $("#recipeDiv .temperature h2").text(i18n.t('recipe.temperature_value', { value: data.temperature }));
-        $("#oven_image").attr("src", data.oven_image);
-        $("#recipeDiv").removeClass("d-none");
-    }
-
-    function clearGeneralMessage() {
         $("#responseMsg").empty();
-        lastGeneralMessageKey = null;
+        if (!errors) return;
+        Object.keys(errors).forEach(key => {
+            $("#responseMsg").append(`<div class="text-danger">${window.i18n ? i18n.t(errors[key]) : errors[key]}</div>`);
+        });
     }
 
-    function setGeneralMessage(key, type = 'danger') {
-        lastGeneralMessageKey = key;
-        $("#responseMsg").html(`<div class="alert alert-${type}" data-i18n-key="${key}">${i18n.t(key)}</div>`);
-    }
+    /* ------------------ RENDER RECIPE ------------------ */
+   function renderRecipe(data) {
+    if (!data || data.status !== 'success') return;
+    if (!data.ingredients || data.ingredients.length === 0) return;
 
+    let tbody = '';
+
+    data.ingredients.forEach(item => {
+
+        const ingredientName = window.i18n
+            ? i18n.t(item.ingredient)
+            : item.ingredient;
+
+        let quantity = '';
+        let measurement = '';
+
+        /* Vanilla */
+        if (item.unit === 'drops') {
+            quantity = item.value + ' drops';
+            measurement = '—';
+        }
+
+        /* Egg */
+        else if (item.pcs !== undefined) {
+            quantity = item.grams + ' g';
+            measurement = Math.round(item.pcs) + ' pcs';
+        }
+
+        /* Other ingredients */
+        else {
+            quantity = item.grams + ' g';
+            measurement = item.measurement || '—';
+        }
+
+        tbody += `
+            <tr>
+                <td>${ingredientName}</td>
+                <td>${quantity}</td>
+                <td>${measurement}</td>
+            </tr>`;
+    });
+
+    const tableHtml = `
+        <table class="table table-bordered table-striped mt-3">
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Measurement</th>
+                </tr>
+            </thead>
+            <tbody>${tbody}</tbody>
+        </table>`;
+
+    $("#responseMsg").html(tableHtml);
+}
+
+    /* ------------------ HANDLE RESPONSE ------------------ */
     function handleResponse(response) {
         if (response.status === 'error') {
             lastErrors = response.errors;
             lastResponse = null;
             renderErrors(response.errors);
-            $("#recipeDiv").addClass("d-none");
-            clearGeneralMessage();
         } else if (response.status === 'success') {
             lastResponse = response;
             lastErrors = null;
             renderErrors(null);
             renderRecipe(response);
-            clearGeneralMessage();
         }
     }
 
+    /* ------------------ FORM SUBMIT ------------------ */
     $(document).ready(function () {
         $("#cakeForm").on("submit", function (e) {
             e.preventDefault();
-
             $(".error-msg").remove();
-            clearGeneralMessage();
 
             const payload = {};
-
             $(this).serializeArray().forEach(({ name, value }) => {
                 payload[name] = value;
             });
@@ -325,35 +293,16 @@
                 type: "POST",
                 data: payload,
                 dataType: "json",
-                success: function (response) {
-                    handleResponse(response);
-                },
+                success: handleResponse,
                 error: function () {
-                    setGeneralMessage('errors.general');
+                    $("#responseMsg").html('<div class="text-danger">Server error. Please try again.</div>');
                 }
             });
         });
     });
 
-    document.addEventListener('i18n:change', function () {
-        updateCakeWeightDisplay();
-        renderErrors(lastErrors);
-        renderRecipe(lastResponse);
-
-        if (lastGeneralMessageKey) {
-            setGeneralMessage(lastGeneralMessageKey);
-        }
-    });
-
-    if (window.i18n && i18n.ready) {
-        updateCakeWeightDisplay();
-        renderErrors(lastErrors);
-        renderRecipe(lastResponse);
-
-        if (lastGeneralMessageKey) {
-            setGeneralMessage(lastGeneralMessageKey);
-        }
-    }
 })(jQuery);
 </script>
+
+
 
