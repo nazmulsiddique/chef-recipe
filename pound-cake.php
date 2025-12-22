@@ -68,10 +68,10 @@
                             <tr>
                                 <th data-i18n="table.headers.ingredients">Ingredients</th>
                                 <th data-i18n="table.headers.quantity">Quantity</th>
+                                <th data-i18n="table.headers.measurement">Measurement</th>
                             </tr>
                         </thead>
                         <tbody></tbody>
-                        
                         <tfoot></tfoot>
                     </table>
                 </div>
@@ -109,8 +109,8 @@
                             <img class="img-fluid" src="images/details-image-two.png" alt="" >
                         </div>
                         <div class="col-lg-7 mt-3">
-                            <p data-i18n="pound.steps.step5"><strong>Step 5:</strong> Preheat the oven in convection mode at the set temperature for 5 minutes. Once preheating is complete, place the mold with the batter into the oven.</p>
-                            <p data-i18n="pound.steps.step6"><strong>Step 6:</strong> Set the convection time for 40–60 minutes, adjust the temperature as required, and start the oven.</p>
+                            <p data-i18n="pound.steps.step5"><strong>Step 5:</strong> Set the oven to the above-shown specified temperature and preheat it in convection mode for 5-7 minutes. After preheating, place the mold with batter inside the oven.</p>
+                            <p data-i18n="pound.steps.step6"><strong>Step 6:</strong> Set the convection time for 40–60 minutes and start the oven by setting the above-shown specified temperature.</p>
                             <p data-i18n="pound.steps.step7"><strong>Step 7:</strong> Baking time may vary depending on voltage, mold, and type of cake. After about 30-40 minutes, insert a dry stick into the cake to check. If the stick comes out with batter, the cake is not ready yet. If it comes out clean, the cake is done.</p>
                         </div>
 
@@ -151,127 +151,75 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 (function ($) {
+
+    /* ================= STATE ================= */
     let lastResponse = null;
     let lastErrors = null;
     let lastGeneralMessageKey = null;
+
     const cakeWeightInput = document.getElementById('cake_weight');
 
+    /* ================= UTILITIES ================= */
+
     function sanitizeNumericInput(value) {
-        if (value === null || value === undefined) {
-            return '';
-        }
-
-        const normalized = (window.i18n ? i18n.normalizeNumber(value) : String(value));
-
+        if (value == null) return '';
+        const normalized = window.i18n ? i18n.normalizeNumber(value) : String(value);
         return normalized.replace(/[^0-9]/g, '');
     }
 
     function updateCakeWeightDisplay() {
-        if (!cakeWeightInput) {
-            return;
-        }
+        if (!cakeWeightInput) return;
 
-        const rawValue = cakeWeightInput.dataset.rawValue !== undefined
-            ? cakeWeightInput.dataset.rawValue
-            : sanitizeNumericInput(cakeWeightInput.value);
+        const rawValue =
+            cakeWeightInput.dataset.rawValue ??
+            sanitizeNumericInput(cakeWeightInput.value);
 
         cakeWeightInput.dataset.rawValue = rawValue;
 
-        if (window.i18n && i18n.current === 'bn') {
-            cakeWeightInput.value = i18n.localizeNumber(rawValue);
-        } else {
-            cakeWeightInput.value = rawValue;
-        }
-    }
-
-    if (cakeWeightInput) {
-        updateCakeWeightDisplay();
-
-        cakeWeightInput.addEventListener('input', function (event) {
-            const sanitized = sanitizeNumericInput(event.target.value);
-            event.target.dataset.rawValue = sanitized;
-
-            if (window.i18n && i18n.current === 'bn') {
-                event.target.value = i18n.localizeNumber(sanitized);
-            } else {
-                event.target.value = sanitized;
-            }
-        });
+        cakeWeightInput.value =
+            window.i18n && i18n.current === 'bn'
+                ? i18n.localizeNumber(rawValue)
+                : rawValue;
     }
 
     function translateQuantity(value, unit, noteKey, noteParams) {
-        let translated = value;
+        let text = value;
 
         if (unit) {
-            translated = i18n.t(`units.${unit}`, { value: value });
-        } else if (value !== undefined && value !== null) {
-            translated = i18n.localizeNumber(value);
+            text = i18n.t(`units.${unit}`, { value });
+        } else if (value != null) {
+            text = i18n.localizeNumber(value);
         }
 
         if (noteKey) {
             const note = i18n.t(noteKey, noteParams || {});
-            if (note) {
-                translated = `${translated} ${note}`.trim();
-            }
+            if (note) text += ` ${note}`;
         }
 
-        return translated;
+        return text;
+    }
+
+    /* ================= ERROR & MESSAGE ================= */
+
+    function clearErrors() {
+        $(".error-msg").remove();
     }
 
     function renderErrors(errors) {
-        $(".error-msg").remove();
-        if (!errors) {
-            return;
-        }
+        clearErrors();
+        if (!errors) return;
 
         if (errors.cake_weight) {
-            $("#cake_weight").after(`<div class="text-danger error-msg">${i18n.t(errors.cake_weight)}</div>`);
+            $("#cake_weight").after(
+                `<div class="text-danger error-msg">${i18n.t(errors.cake_weight)}</div>`
+            );
         }
 
         if (errors.oven_model) {
-            $("#oven_model").after(`<div class="text-danger error-msg">${i18n.t(errors.oven_model)}</div>`);
-        }
-    }
-
-    function renderRecipe(data) {
-        if (!data || data.status !== 'success') {
-            return;
-        }
-
-        if (!data.ingredients || data.ingredients.length === 0) {
-            return;
-        }
-
-        let tbody = '';
-
-        data.ingredients.forEach(item => {
-            const name = i18n.t(item.ingredient_key);
-            const quantity = translateQuantity(
-                item.quantity_value,
-                item.quantity_unit,
-                item.note_key,
-                item.note_params
+            $("#oven_model").after(
+                `<div class="text-danger error-msg">${i18n.t(errors.oven_model)}</div>`
             );
-
-            tbody += `
-                <tr>
-                    <td>${name}</td>
-                    <td>${quantity}</td>
-                </tr>
-            `;
-        });
-
-        $("#recipeDiv table tbody").html(tbody);
-        $("#recipeDiv table tfoot").html(`
-            <tr>
-                <td class="fw-bold">${i18n.t('table.total')}</td>
-                <td class="fw-bold">${translateQuantity(data.total_after_round, 'grams')}</td>
-            </tr>
-        `);
-
-        $("#recipeDiv .temperature h2").text(i18n.t('recipe.temperature_value', { value: data.temperature }));
-        $("#oven_image").attr("src", data.oven_image);
-        $("#recipeDiv").removeClass("d-none");
+        }
     }
 
     function clearGeneralMessage() {
@@ -281,8 +229,44 @@
 
     function setGeneralMessage(key, type = 'danger') {
         lastGeneralMessageKey = key;
-        $("#responseMsg").html(`<div class="alert alert-${type}" data-i18n-key="${key}">${i18n.t(key)}</div>`);
+        $("#responseMsg").html(
+            `<div class="alert alert-${type}">${i18n.t(key)}</div>`
+        );
     }
+
+    /* ================= RENDER RECIPE ================= */
+
+    function renderRecipe(data) {
+        if (!data || data.status !== 'success' || !data.ingredients?.length) return;
+
+        let tbody = '';
+
+        data.ingredients.forEach(item => {
+            tbody += `
+                <tr>
+                    <td>${i18n.t(item.ingredient_key)}</td>
+                    <td>${translateQuantity(
+                        item.quantity_value,
+                        item.quantity_unit,
+                        item.note_key,
+                        item.note_params
+                    )}</td>
+                    <td>${item.measurement || '-'}</td>
+                </tr>
+            `;
+        });
+
+        $("#recipeDiv table tbody").html(tbody);
+
+        $("#recipeDiv .temperature h2").text(
+            i18n.t('recipe.temperature_value', { value: data.temperature })
+        );
+
+        $("#oven_image").attr("src", data.oven_image);
+        $("#recipeDiv").removeClass("d-none");
+    }
+
+    /* ================= RESPONSE HANDLER ================= */
 
     function handleResponse(response) {
         if (response.status === 'error') {
@@ -300,11 +284,26 @@
         }
     }
 
+    /* ================= EVENTS ================= */
+
     $(document).ready(function () {
+
+        // Input formatting
+        if (cakeWeightInput) {
+            updateCakeWeightDisplay();
+
+            cakeWeightInput.addEventListener('input', function (e) {
+                const sanitized = sanitizeNumericInput(e.target.value);
+                e.target.dataset.rawValue = sanitized;
+                updateCakeWeightDisplay();
+            });
+        }
+
+        // Form submit (NO RELOAD)
         $("#cakeForm").on("submit", function (e) {
             e.preventDefault();
 
-            $(".error-msg").remove();
+            clearErrors();
             clearGeneralMessage();
 
             const payload = {};
@@ -314,10 +313,8 @@
             });
 
             if (cakeWeightInput) {
-                const rawValue = cakeWeightInput.dataset.rawValue || sanitizeNumericInput(cakeWeightInput.value);
-                payload.cake_weight = rawValue;
-                cakeWeightInput.dataset.rawValue = rawValue;
-                updateCakeWeightDisplay();
+                payload.cake_weight = cakeWeightInput.dataset.rawValue ||
+                                      sanitizeNumericInput(cakeWeightInput.value);
             }
 
             $.ajax({
@@ -325,15 +322,15 @@
                 type: "POST",
                 data: payload,
                 dataType: "json",
-                success: function (response) {
-                    handleResponse(response);
-                },
+                success: handleResponse,
                 error: function () {
                     setGeneralMessage('errors.general');
                 }
             });
         });
     });
+
+    /* ================= i18n CHANGE ================= */
 
     document.addEventListener('i18n:change', function () {
         updateCakeWeightDisplay();
@@ -345,15 +342,5 @@
         }
     });
 
-    if (window.i18n && i18n.ready) {
-        updateCakeWeightDisplay();
-        renderErrors(lastErrors);
-        renderRecipe(lastResponse);
-
-        if (lastGeneralMessageKey) {
-            setGeneralMessage(lastGeneralMessageKey);
-        }
-    }
 })(jQuery);
 </script>
-
