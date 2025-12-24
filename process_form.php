@@ -52,18 +52,19 @@ foreach ($data[$oven_model] as $ingredient => $percent) {
     if (in_array($ingredient, ['Temperature','Image'])) continue;
 
     if ($ingredient === 'Vanilla Essence (Drop)') {
+        $drops = getVanillaEssenceDrop($cake_weight);
         $ingredientsArr[] = [
             'ingredient_key' => $ingredientKeys[$ingredient],
             'quantity_value' => getVanillaEssenceDrop($cake_weight),
             'quantity_unit'  => 'drops',
-            'measurement'    => ''
+            'measurement'    => $drops . ' drops'
         ];
         continue;
     }
 
     $exact = ($cake_weight * $percent) / 100;
-    //$grams = round($exact, 2);
-    $grams = round($exact);
+    $grams = round($exact, 2);
+    //$grams = round($exact);
 
     if ($ingredient === 'Egg') {
         $measurement = eggGramsToPcs($grams);

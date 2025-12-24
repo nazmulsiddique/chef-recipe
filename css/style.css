@@ -270,6 +270,13 @@ tfoot tr td {
     font-weight: 400;
     font-size: 15px;
 }
+.drop-icon{
+    width:32px;
+    height:32px;
+    margin-right:2px;
+    vertical-align: middle;
+}
+
 /* Extra small devices (phones, portrait, under 576px) */
 @media only screen and (max-width: 575.98px) {
     .top-bar-area{

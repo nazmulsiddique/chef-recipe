@@ -234,6 +234,59 @@
         );
     }
 
+
+function unitIconJS(text) {
+    if (!text) return '-';
+    // 🔹 DROPS HANDLE
+    if (/^\d+\s*drops?$/i.test(text)) {
+        const count = parseInt(text, 10);
+        return '<img src="images/drop.png" class="drop-icon">'.repeat(count);
+    }
+   //text = text.toString().trim();
+    if (/^\d+\s*pcs$/i.test(text)) {
+        const count = parseInt(text, 10);
+        return '<img src="images/egg.png" class="drop-icon">'.repeat(count);
+    }
+
+    const parts = text.split(' + ');
+    let output = [];
+
+    parts.forEach(part => {
+        let icons = '';
+
+        // detect fraction-only (¾ cup, ½ tsp)
+        const isFractionOnly = /^[¼⅓½⅔¾]/.test(part);
+
+        // count (3 tbsp)
+        const countMatch = part.match(/^(\d+)/);
+        const count = countMatch ? parseInt(countMatch[1]) : 1;
+
+        // fraction (½, ¼, ¾)
+        const fracMatch = part.match(/[¼⅓½⅔¾]/);
+        const fraction = fracMatch ? fracMatch[0] : '';
+
+        // choose icon
+        let icon = '';
+        if (part.includes('cup')) icon = '<img src="images/cup.png" class="drop-icon">';
+        if (part.includes('tbsp')) icon = '<img src="images/tbs.png" class="drop-icon">';
+        if (part.includes('tsp'))  icon = '<img src="images/ts.png" class="drop-icon">';
+
+        // repeat icons
+        if (!isFractionOnly) {
+            icons += icon.repeat(count);
+        }
+
+        // append fraction icon
+        if (fraction) {
+            icons += fraction + icon;
+        }
+
+        output.push(icons);
+    });
+
+    return output.join(' + ');
+}
+
     /* ================= RENDER RECIPE ================= */
 
     function renderRecipe(data) {
@@ -246,12 +299,12 @@
                 <tr>
                     <td>${i18n.t(item.ingredient_key)}</td>
                     <td>${translateQuantity(
-                        item.quantity_value,
+                        Math.round(item.quantity_value),
                         item.quantity_unit,
                         item.note_key,
                         item.note_params
                     )}</td>
-                    <td>${item.measurement || '-'}</td>
+                    <td>${unitIconJS(item.measurement)}</td>
                 </tr>
             `;
         });
