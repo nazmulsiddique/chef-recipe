@@ -61,7 +61,7 @@
 
                 <!-- Result will show here -->
             <div id="responseMsg" class="mt-3"></div>
-            <div class="row mt-5 d-none" id="recipeDiv">
+            <div class="row mt-3 d-none" id="recipeDiv">
                 <div class="col-lg-8">
                     <table class="table">
                         <thead>
@@ -74,6 +74,20 @@
                         <tbody></tbody>
                         <tfoot></tfoot>
                     </table>
+                    <div class="d-flex justify-content-between align-items-center px-4 py-2 rounded">
+                        <div class="d-flex align-items-center gap-2">
+                            <img src="images/cup.png" alt="">
+                            <span><strong>Cup: 240 ml</strong> </span>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <img src="images/tbs.png" alt="">
+                            <span><strong>Table Spoon: 15 ml</strong> </span>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <img src="images/ts.png" alt="">
+                            <span><strong>Tea Spoon: 5 ml</strong> </span>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="oven-model">
@@ -92,6 +106,12 @@
                 
                 <div class="details-info mt-5">
                     <div class="row">
+                        <div class="col-lg-12 mb-3">
+                            <div class="d-flex justify-content-between gap-2">
+                                    <h2 class="pound-cake-title me-3" data-i18n="pound.nb_title"> <span></span>  NB: </h2>
+                                    <p data-i18n="pound.nb_description">For better baking, please follow the measurements accurately. If you do not have a weighing scale, you may use a measuring cup. However, using exact weight measurements will give you the best baking performance.</p>
+                            </div>
+                        </div>
                         <div class="col-lg-12">
                            <h2 class="pound-cake-title mb-5" data-i18n="pound.details_title"> <span></span>  Details Recipe</h2>
                         </div>
