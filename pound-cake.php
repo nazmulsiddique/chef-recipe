@@ -102,16 +102,16 @@
                         <img id="oven_image" src="" alt="" class="img-fluid">
                     </div>
                 </div>
+                <div class="col-lg-12 mb-3 mt-3">
+                    <div class="d-flex justify-content-between gap-2">
+                            <h2 class="pound-cake-title me-3" data-i18n="recipe.nb_title"> <span></span>  NB: </h2>
+                            <p data-i18n="recipe.nb_description">For better baking, please follow the measurements accurately. If you do not have a weighing scale, you may use a measuring cup. However, using exact weight measurements will give you the best baking performance.</p>
+                    </div>
+                </div>
             </div>
                 
                 <div class="details-info mt-5">
                     <div class="row">
-                        <div class="col-lg-12 mb-3">
-                            <div class="d-flex justify-content-between gap-2">
-                                    <h2 class="pound-cake-title me-3" data-i18n="pound.nb_title"> <span></span>  NB: </h2>
-                                    <p data-i18n="pound.nb_description">For better baking, please follow the measurements accurately. If you do not have a weighing scale, you may use a measuring cup. However, using exact weight measurements will give you the best baking performance.</p>
-                            </div>
-                        </div>
                         <div class="col-lg-12">
                            <h2 class="pound-cake-title mb-5" data-i18n="pound.details_title"> <span></span>  Details Recipe</h2>
                         </div>

@@ -60,12 +60,10 @@
         "pound": {
             "hero": {
                 "title": "Pound Cake",
-                "description": "Our pound cake is made with the perfect blend of ingredients, delivering a soft and moist texture with a rich, classic taste. Whether it’s for an afternoon snack, a special celebration, or simply a sweet treat every slice will bring you joy and satisfaction."
+                "description": "We often want to make pound cake at home, but the taste does not come out right because the ingredients are not measured accurately. By following our recipe calculator and pound cake recipe, you can easily make a perfectly delicious pound cake at home. Whether it’s for an afternoon snack, a special celebration, or simply a sweet treat every slice will bring you joy and satisfaction."
             },
             "calculate_title": "<span></span> Easily calculate your recipe in seconds",
             "details_title": "<span></span> Details Recipe",
-            "nb_title": "<span></span> NB:",
-            "nb_description": "<span></span> For better baking, please follow the measurements accurately. If you do not have a weighing scale, you may use a measuring cup. However, using exact weight measurements will give you the best baking performance.",
             "tips_title": "<span></span> Cake Baking Tips",
             "note_title": "<span></span> Note",
             "caution_title": "<span></span> Caution",
@@ -75,7 +73,7 @@
             "steps": {
                 "step1": "<strong>Step 1:</strong> Put the flour, milk powder, and baking powder in a bowl, strain them with a strainer, and mix well.",
                 "step2": "<strong>Step 2:</strong> In another bowl, beat the eggs with a beater. Gradually add sugar while beating until it becomes fluffy and foamy.",
-                "step3": "<strong>Step 3:</strong> Gradually add the flour mixture into the egg mixture and mix well. Then add soybean oil and vanilla essence (drops) and combine thoroughly.",
+                "step3": "<strong>Step 3:</strong> Gradually add the flour mixture into the egg mixture and mix well. Then add soybean oil and vanilla essence (drops) and combine thoroughly. At this stage, the smooth mixture that has been prepared is the cake batter.",
                 "step4": "<strong>Step 4:</strong> Before pouring the batter, cover the mold with baking paper and brush lightly with oil. Then pour the batter into the mold.",
                 "step5": "<strong>Step 5:</strong> Set the oven to the above-shown specified temperature and preheat it in convection mode for 5-7 minutes. After preheating, place the mold with batter inside the oven.",
                 "step6": "<strong>Step 6:</strong> Set the convection time for 40–60 minutes and start the oven by setting the above-shown specified temperature.",
@@ -118,7 +116,9 @@
             "temperature_label": "Set Temperature",
             "temperature_note": "“The temperature may need to be increased or decreased depending on the voltage.”",
             "temperature_value": "{value} °",
-            "cooking_model": "Cooking Mode: Convection"
+            "cooking_model": "Cooking Mode: Convection",
+            "nb_title": "<span></span> NB:",
+            "nb_description": "<span></span> For better baking, please follow the measurements accurately. If you do not have a weighing scale, you may use a measuring cup. However, using exact weight measurements will give you the best baking performance."
         },
         "breadcrumb": {
             "home": "Home",
@@ -192,7 +192,7 @@
         "index": {
             "hero": {
                 "title": "শেফ'স পারফেক্ট রেসিপি",
-                "description": "শেফ'স পারফেক্ট রেসিপির সাথে রান্না হবে আরও সহজ আর নিশ্চিন্ত। আপনার ওভেনের জন্য সঠিক উপকরণ, সময় আর সেটিংস মিলিয়ে এটি প্রতিবারই দেবে নিখুঁত ফলাফল। আপনি কেক বেক করুন বা পিজ্জা বানান আমাদের রেসিপি ক্যালকুলেটর রান্নাকে করে তুলবে আরও সহজ, দ্রুত আর সুস্বাদু।",
+                "description": "শেফ'স পারফেক্ট রেসিপির সাথে রান্না হবে আরও সহজ আর নিশ্চিন্ত। আপনার ওভেনের জন্য সঠিক উপকরণ, সময় আর সেটিংস মিলিয়ে এটি প্রতিবারই দেবে নিখুঁত ফলাফল। আপনি কেক বা পিজ্জা যাই বেক করুন না কেন আমাদের রেসিপি ক্যালকুলেটর রান্নাকে করে তুলবে আরও সহজ, দ্রুত আর সুস্বাদু।",
                 "home_page_title": "<span></span> ওয়ালটন স্পেশাল বেকিং ও কুকিং আইটেম"
             }
         },
@@ -202,11 +202,11 @@
         "categories": {
             "pound_cake": {
                 "title": "পাউন্ড কেক",
-                "description": "স্নিগ্ধ ও সমৃদ্ধ পাউন্ড কেক, প্রতিটি কামড়ে ক্লাসিক স্বাদের পরিপূর্ণতা।"
+                "description": "পারফেক্ট স্বাদ আর ঘ্রাণের স্নিগ্ধ পাউন্ড কেক, প্রতিটি কামড়ে আনে তৃপ্তি।"
             },
             "sponge_cake": {
                 "title": "স্পঞ্জ কেক",
-                "description": "নরম ও ফুঁলফুঁলে স্পঞ্জ কেক, হালকা টেক্সচারের জন্য যা চা-সময় বা ডেজার্টে একদম উপযুক্ত।"
+                "description": "নরম তুলতুলে স্পঞ্জ কেক। চা-টাইম বা ডেজার্ট হিসেবে একদম উপযুক্ত।"
             },
             "dry_cake": {
                 "title": "ড্রাই কেক",
@@ -218,7 +218,7 @@
             },
             "tandoori_chicken": {
                 "title": "তন্দুরি চিকেন",
-                "description": "মসলা মাখানো রসালো ও সুস্বাদু চিকেন, ধোঁয়াটে ঘ্রাণে রোস্ট করা নিখুঁত তন্দুরি স্বাদে।"
+                "description": "মসলা মাখানো, জুসি তন্দুরি চিকেন। স্মোকি ঘ্রাণ আর রোস্টের দারুণ কম্বিনেশন"
             },
             "pizza": {
                 "title": "পিজা",
@@ -226,7 +226,7 @@
             },
             "maltova_biscuit": {
                 "title": "মালটোভা বিস্কুট",
-                "description": "সোনালি রঙের খসখসে বিস্কুট, প্রতিটি কামড়ে সমৃদ্ধ স্বাদের পরিপূর্ণতা।"
+                "description": "মালটোভা ফ্লেভারের মচমচে বিস্কুট, যার প্রতিটি কামড় স্বাদের মুগ্ধতা জাগায়।"
             },
             "butter_salt_biscuit": {
                 "title": "বাটার সল্ট বিস্কুট",
@@ -236,12 +236,10 @@
         "pound": {
             "hero": {
                 "title": "পাউন্ড কেক",
-                "description": "আমাদের পাউন্ড কেক নিখুঁত উপকরণের সমন্বয়ে তৈরি, যা দেয় নরম ও স্নিগ্ধ টেক্সচার এবং সমৃদ্ধ, ক্লাসিক স্বাদ। বিকেলের নাস্তায়, বিশেষ উদযাপন কিংবা স্রেফ মিষ্টি খাবার হিসেবে প্রতিটি স্লাইস আপনাকে দেবে আনন্দ ও তৃপ্তির অনুভূতি।"
+                "description": "বাড়িতে আমরা প্রায়ই পাউন্ড কেক বানাতে ইচ্ছা করি। কিন্তু উপকরণগুলো সঠিক পরিমাণে না নেওয়ার কারণে কেকের স্বাদ ঠিক থাকে না। আমাদের রেসিপি ক্যালকুলেটর এবং পাউন্ড কেকের রেসিপি অনুসরণ করলে আপনি খুব সহজেই বাড়িতেই পারফেক্ট স্বাদের পাউন্ড কেক তৈরি করতে পারবেন। বিকেলের নাস্তায়, বিশেষ উদযাপন কিংবা স্রেফ মিষ্টি খাবার হিসেবে প্রতিটি স্লাইস আপনাকে দেবে আনন্দ ও তৃপ্তির অনুভূতি।"
             },
             "calculate_title": "<span></span> সেকেন্ডের মধ্যে সহজে হিসাব করুন আপনার রেসিপি",
             "details_title": "<span></span> বিস্তারিত রেসিপি",
-            "nb_title": "<span class='text-nowrap'> &nbsp; বিশেষ দ্রষ্টব্য:</span>",
-            "nb_description": "<span></span> ভালোভাবে বেকিং করার জন্য দয়া করে উপকরণের পরিমাণ সঠিকভাবে মেপে নিন। যদি আপনার কাছে ওজন মাপার স্কেল না থাকে, তাহলে মেজারমেন্ট কাপ ব্যবহার করতে পারেন। তবে সঠিক ওজন অনুযায়ী মাপ নিলে বেকিং-এর ফলাফল আরও ভালো হবে।",
             "tips_title": "<span></span> কেক বানানোর স্পেশাল টিপস",
             "note_title": "<span></span> দ্রষ্টব্য",
             "caution_title": "<span></span> সতর্কতা",
@@ -251,9 +249,9 @@
             "steps": {
                 "step1": "<strong>ধাপ ১:</strong>  ময়দা, গুঁড়ো দুধ এবং বেকিং পাউডার একসাথে চেলে একটি পাত্রে নিন এবং ভালোভাবে মিশিয়ে রাখুন।",
                 "step2": "<strong>ধাপ ২:</strong> আরেকটি পাত্রে ডিম নিয়ে বিটার দিয়ে বিট করুন। বিট করার সময় অল্প অল্প করে চিনি যোগ করুন এবং ফোম হওয়া পর্যন্ত বিট করুন।",
-                "step3": "<strong>ধাপ ৩:</strong> ডিমের মিশ্রণে ধীরে ধীরে ময়দার মিশ্রণ যোগ করুন এবং ভালোভাবে মিশিয়ে নিন। এরপর সয়াবিন তেল ও ভ্যানিলা এসেন্স যোগ করে মিশিয়ে নিন।",
-                "step4": "<strong>ধাপ ৪:</strong> বেটার ঢালার আগে মোল্ডে বেকিং পেপার বিছিয়ে নিন এবং সামান্য তেল দিয়ে ব্রাশ করুন। এরপর ব্যাটার ঢেলে দিন।",
-                "step5": "<strong>ধাপ ৫:</strong> ওভেনটি উপরে দেখানো নির্ধারিত তাপমাত্রা সেট করে কনভেকশন মোডে ৫-৭ মিনিট প্রি-হিট করুন। প্রি-হিট শেষ হলে বেটারসহ মোল্ডটি ওভেনে দিন।",
+                "step3": "<strong>ধাপ ৩:</strong> ডিমের মিশ্রণে ধীরে ধীরে ময়দার মিশ্রণ যোগ করুন এবং ভালোভাবে মিশিয়ে নিন। এরপর সয়াবিন তেল ও ভ্যানিলা এসেন্স যোগ করে মিশিয়ে নিন। এ পর্যায়ে প্রস্তুত হওয়া মসৃণ মিশ্রণটিই হলো কেকের ব্যাটার।",
+                "step4": "<strong>ধাপ ৪:</strong> ব্যাটার ঢালার আগে মোল্ডে বেকিং পেপার বিছিয়ে নিন এবং সামান্য তেল দিয়ে ব্রাশ করুন। এরপর ব্যাটার ঢেলে দিন।",
+                "step5": "<strong>ধাপ ৫:</strong> ওভেনটি উপরে দেখানো নির্ধারিত তাপমাত্রা সেট করে কনভেকশন মোডে ৫-৭ মিনিট প্রি-হিট করুন। প্রি-হিট শেষ হলে ব্যাটারসহ মোল্ডটি ওভেনে দিন।",
                 "step6": "<strong>ধাপ ৬:</strong> ৪০–৬০ মিনিট কনভেকশন টাইম সেট করুন এবং উপরে দেখানো নির্ধারিত তাপমাত্রা সেট করে ওভেন চালু করুন।",
                 "step7": "<strong>ধাপ ৭:</strong> ভোল্টেজ, মোল্ড এবং কেকের ধরন অনুযায়ী সময় কমবেশি হতে পারে। প্রায় ৩০-৪০ মিনিট পর থেকে শুকনো কাঠি ঢুকিয়ে কেক পরীক্ষা করুন। যদি কাঠিতে ব্যাটার লেগে আসে, তবে কেক এখনো হয়নি। আর যদি কাঠি পরিষ্কার বের হয়, তবে কেক তৈরি হয়ে গেছে।"
             },
@@ -285,7 +283,7 @@
             "headers": {
                 "ingredients": "উপকরণ",
                 "quantity": "পরিমাণ",
-                "measurement": "পরিমাণ"
+                "measurement": "পরিমাপ"
             },
             "total": "মোট"
         },
@@ -294,7 +292,9 @@
             "temperature_label": "তাপমাত্রা সেট করুন",
             "temperature_note": "“ভোল্টেজের ওপর নির্ভর করে তাপমাত্রা বাড়ানো বা কমানো লাগতে পারে।”",
             "temperature_value": "{value} °",
-            "cooking_model": "রান্নার মোড: কনভেকশন"
+            "cooking_model": "রান্নার মোড: কনভেকশন",
+            "nb_title": "<span class='text-nowrap'> &nbsp; বিশেষ দ্রষ্টব্য:</span>",
+            "nb_description": "<span></span> ভালোভাবে বেকিং করার জন্য দয়া করে উপকরণের পরিমাণ সঠিকভাবে মেপে নিন। যদি আপনার কাছে ওজন মাপার স্কেল না থাকে, তাহলে মেজারমেন্ট কাপ ব্যবহার করতে পারেন। তবে সঠিক ওজন অনুযায়ী মাপ নিলে বেকিং-এর ফলাফল আরও ভালো হবে।"
         },
         "breadcrumb": {
             "home": "হোম",
